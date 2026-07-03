@@ -1,0 +1,6 @@
+{
+  "name": "البوابة الكشفية التونسية",
+  "description": "دليل رقمي شامل وتفاعلي لقادة ومنتسبي الكشافة التونسية، يشمل المناهج، القوانين، الشروط الدراسية، وحاسبة الترشح الذكية.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

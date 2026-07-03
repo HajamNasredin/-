@@ -1,0 +1,21 @@
+{
+  "short_name": "الكشافة التونسية",
+  "name": "البوابة الكشفية التونسية الشاملة",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='192' height='192'><rect width='512' height='512' fill='%231B5E20' rx='100'/><path d='M256 100 L350 220 L300 220 L300 320 L212 320 L212 220 L162 220 Z' fill='%23FF6F00'/><circle cx='256' cy='400' r='24' fill='%23FFC107'/></svg>",
+      "type": "image/svg+xml",
+      "sizes": "192x192"
+    },
+    {
+      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='512' height='512'><rect width='512' height='512' fill='%231B5E20' rx='100'/><path d='M256 100 L350 220 L300 220 L300 320 L212 320 L212 220 L162 220 Z' fill='%23FF6F00'/><circle cx='256' cy='400' r='24' fill='%23FFC107'/></svg>",
+      "type": "image/svg+xml",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#F8FAF8",
+  "theme_color": "#1B5E20",
+  "display": "standalone",
+  "orientation": "portrait"
+}
