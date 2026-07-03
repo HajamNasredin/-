@@ -85,7 +85,7 @@ export function FormsScreen() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Form selection and Inputs columns */}
         <div className="lg:col-span-6 space-y-6 print:hidden">
-          <div className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-5 rounded-3xl shadow-sm space-y-3">
+          <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-5 rounded-3xl shadow-sm space-y-3">
             <span className="text-xs font-bold text-text-secondary dark:text-gray-400 block pb-1">اختر الاستمارة لتغذية البيانات:</span>
             <div className="space-y-2">
               {APPLICATION_FORMS.map((form) => (
@@ -95,7 +95,7 @@ export function FormsScreen() {
                   className={`w-full p-4 rounded-xl text-right transition-all flex items-center gap-3 border ${
                     selectedForm?.id === form.id
                       ? 'bg-primary/5 dark:bg-primary/20 border-primary text-primary dark:text-primary-light font-bold'
-                      : 'bg-gray-50 dark:bg-[#131914] border-gray-100 dark:border-emerald-950/20 text-text-secondary dark:text-gray-300 hover:bg-gray-100/60 dark:hover:bg-[#1e251f]/80'
+                      : 'bg-gray-50 dark:bg-[#150e0f] border-gray-100 dark:border-red-950/20 text-text-secondary dark:text-gray-300 hover:bg-gray-100/60 dark:hover:bg-[#201012]/85'
                   }`}
                 >
                   <FileText className="w-5 h-5 shrink-0 text-primary dark:text-primary-light" />
@@ -106,7 +106,7 @@ export function FormsScreen() {
           </div>
 
           {selectedForm && !validatedInputs && (
-            <form onSubmit={handleSubmitForm} className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-6 md:p-8 rounded-3xl shadow-sm space-y-5 text-right">
+            <form onSubmit={handleSubmitForm} className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-6 md:p-8 rounded-3xl shadow-sm space-y-5 text-right">
               <div>
                 <h3 className="font-extrabold text-base text-text-primary dark:text-white">{selectedForm.title}</h3>
                 <p className="text-xs text-text-secondary dark:text-gray-400 mt-1">يرجى قراءة التوجيهات المرفقة وتعبئة البيانات لإنشاء نسخة printable الموقعة.</p>
@@ -138,13 +138,13 @@ export function FormsScreen() {
                         value={formInputs[field.id] || ''}
                         onChange={(e) => handleInputChange(field.id, e.target.value)}
                         placeholder={`تفاصيل ${field.label}...`}
-                        className={`w-full bg-gray-50 dark:bg-[#131914] border ${allErrors[field.id] ? 'border-red-500' : 'border-gray-200 dark:border-emerald-950'} rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right`}
+                        className={`w-full bg-gray-50 dark:bg-[#150e0f] border ${allErrors[field.id] ? 'border-red-500' : 'border-gray-200 dark:border-red-950/20'} rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right`}
                       />
                     ) : field.type === 'select' ? (
                       <select
                         value={formInputs[field.id] || ''}
                         onChange={(e) => handleInputChange(field.id, e.target.value)}
-                        className={`w-full bg-gray-50 dark:bg-[#131914] border ${allErrors[field.id] ? 'border-red-500' : 'border-gray-200 dark:border-emerald-950'} rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right font-semibold text-text-primary dark:text-white`}
+                        className={`w-full bg-gray-50 dark:bg-[#150e0f] border ${allErrors[field.id] ? 'border-red-500' : 'border-gray-200 dark:border-red-950/20'} rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right font-semibold text-text-primary dark:text-white`}
                       >
                         <option value="">-- اختر خياراً --</option>
                         {field.options?.map((opt, oIdx) => (
@@ -157,7 +157,7 @@ export function FormsScreen() {
                         value={formInputs[field.id] || ''}
                         onChange={(e) => handleInputChange(field.id, e.target.value)}
                         placeholder={`${field.label}...`}
-                        className={`w-full bg-gray-50 dark:bg-[#131914] border ${allErrors[field.id] ? 'border-red-500' : 'border-gray-200 dark:border-emerald-950'} rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right`}
+                        className={`w-full bg-gray-50 dark:bg-[#150e0f] border ${allErrors[field.id] ? 'border-red-500' : 'border-gray-200 dark:border-red-950/20'} rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right`}
                       />
                     )}
                     {allErrors[field.id] && (
@@ -177,7 +177,7 @@ export function FormsScreen() {
           )}
 
           {validatedInputs && (
-            <div className="bg-emerald-50 dark:bg-emerald-950/20 p-5 rounded-3xl border border-emerald-100 flex flex-col items-center justify-center text-center space-y-3">
+            <div className="bg-red-50 dark:bg-red-950/20 p-5 rounded-3xl border border-red-100 flex flex-col items-center justify-center text-center space-y-3">
               <CheckCircle2 className="w-10 h-10 text-primary dark:text-primary-light" />
               <h4 className="font-extrabold text-sm text-text-primary dark:text-white">تم توليد الوثيقة الرسمية للتوقيع بنجاح!</h4>
               <p className="text-xs text-text-secondary dark:text-gray-300">
@@ -196,7 +196,7 @@ export function FormsScreen() {
         {/* Live Printable Scout Document Frame rendering */}
         <div className="lg:col-span-6 print:col-span-12">
           {selectedForm && (
-            <div className="bg-white dark:bg-[#1a201b] border-2 border-primary/25 dark:border-primary/45 rounded-3xl p-6 md:p-8 space-y-6 relative overflow-hidden shadow-md">
+            <div className="bg-white dark:bg-[#110708] border-2 border-primary/25 dark:border-primary/45 rounded-3xl p-6 md:p-8 space-y-6 relative overflow-hidden shadow-md">
               {/* Background watermark seal */}
               <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none">
                 <Stamp className="w-96 h-96" />
@@ -227,17 +227,17 @@ export function FormsScreen() {
               </div>
 
               {/* Live values or placeholder prompts */}
-              <div className="space-y-4 min-h-[220px] text-right text-sm leading-relaxed text-text-primary dark:text-gray-100 font-semibold border-b border-gray-100 dark:border-emerald-950 pb-5">
+              <div className="space-y-4 min-h-[220px] text-right text-sm leading-relaxed text-text-primary dark:text-gray-100 font-semibold border-b border-gray-100 dark:border-red-950/20 pb-5">
                 <p>إلى السيد: المفوض الوطني لقسم القيادات والراشدين في تونس</p>
                 <p className="leading-relaxed">
                   أنا الموقع أدناه وقائد الوحدة بالولاية الحالية، يسعدني أن أتقدم لسيادتكم بملفي ومقترحات ترشيحي هذه، متعهداً بالالتزام بروح الشارة الكشفية الخشبية والنظام الأخلاقي الوطني المعمول به لعام 2026. وفيما يلي البيانات المفصلة:
                 </p>
 
-                <div className="bg-gray-50 dark:bg-[#131914]/85 p-4 rounded-2xl border border-gray-100 dark:border-emerald-950/40 space-y-3.5 pt-4 text-xs">
+                <div className="bg-gray-50 dark:bg-[#150e0f]/85 p-4 rounded-2xl border border-gray-100 dark:border-red-950/20 space-y-3.5 pt-4 text-xs">
                   {selectedForm.fields.map((f) => {
                     const value = validatedInputs ? validatedInputs[f.id] : formInputs[f.id];
                     return (
-                      <div key={f.id} className="flex justify-between items-baseline gap-2 border-b border-gray-100/60 dark:border-emerald-950/20 pb-2">
+                      <div key={f.id} className="flex justify-between items-baseline gap-2 border-b border-gray-100/60 dark:border-red-950/20 pb-2">
                         <span className="text-text-secondary dark:text-gray-400 shrink-0 font-bold">{f.label}:</span>
                         <span className={`text-text-primary dark:text-white font-extrabold text-left ${value ? '' : 'text-gray-300 dark:text-gray-600 italic'}`}>
                           {value || '......................................................'}
@@ -270,10 +270,10 @@ export function FormsScreen() {
               </div>
 
               {/* Action buttons (Shown on screen, hidden when printing document) */}
-              <div className="pt-6 border-t border-gray-100 dark:border-emerald-950 flex justify-end gap-3 print:hidden">
+              <div className="pt-6 border-t border-gray-100 dark:border-red-950/20 flex justify-end gap-3 print:hidden">
                 <button
                   onClick={handlePrint}
-                  className="flex items-center gap-1.5 bg-gray-50 text-text-secondary hover:text-text-primary dark:bg-[#1f2720] dark:text-gray-300 px-4 py-2 rounded-full text-xs font-bold transition-all border border-gray-100 dark:border-emerald-950"
+                  className="flex items-center gap-1.5 bg-gray-50 text-text-secondary hover:text-text-primary dark:bg-[#201012] dark:text-gray-300 px-4 py-2 rounded-full text-xs font-bold transition-all border border-gray-100 dark:border-red-950/20"
                 >
                   <Printer className="w-4 h-4 text-primary" />
                   <span>طباعة الوثيقة</span>
@@ -344,7 +344,7 @@ export function FAQScreen() {
               className={`whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold transition-all ${
                 activeTab === cat.id 
                   ? 'bg-primary text-white shadow-sm' 
-                  : 'bg-white dark:bg-[#1a201b] text-text-secondary dark:text-gray-300 border border-gray-100 dark:border-emerald-950 hover:bg-gray-50'
+                  : 'bg-white dark:bg-[#110708] text-text-secondary dark:text-gray-300 border border-gray-100 dark:border-red-950/20 hover:bg-gray-50'
               }`}
             >
               {cat.name}
@@ -352,7 +352,7 @@ export function FAQScreen() {
           ))}
         </div>
 
-        <div className="relative max-w-sm bg-white dark:bg-[#1a201b] rounded-xl border border-gray-100 dark:border-emerald-950 p-1 flex items-center shadow-xs">
+        <div className="relative max-w-sm bg-white dark:bg-[#110708] rounded-xl border border-gray-100 dark:border-red-950/20 p-1 flex items-center shadow-xs">
           <Search className="w-4 h-4 text-gray-400 mr-2" />
           <input 
             type="text"
@@ -371,7 +371,7 @@ export function FAQScreen() {
           return (
             <div 
               key={faq.id}
-              className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 rounded-2xl p-4 md:p-5 shadow-xs text-right cursor-pointer"
+              className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 rounded-2xl p-4 md:p-5 shadow-xs text-right cursor-pointer"
               onClick={() => toggleExpand(faq.id)}
             >
               <div className="flex items-center justify-between gap-4">
@@ -390,7 +390,7 @@ export function FAQScreen() {
                     transition={{ duration: 0.2 }}
                     className="overflow-hidden"
                   >
-                    <p className="text-xs text-text-secondary dark:text-gray-300 leading-relaxed mt-4 pt-4 border-t border-gray-50 dark:border-emerald-950/40 font-semibold">
+                    <p className="text-xs text-text-secondary dark:text-gray-300 leading-relaxed mt-4 pt-4 border-t border-gray-50 dark:border-red-950/10 font-semibold">
                       {faq.answer}
                     </p>
                   </motion.div>
@@ -432,7 +432,7 @@ export function PenaltiesScreen() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Right side nodes list */}
         <div className="lg:col-span-5 space-y-4">
-          <div className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-5 rounded-3xl shadow-sm space-y-3">
+          <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-5 rounded-3xl shadow-sm space-y-3">
             <span className="text-xs font-bold text-text-secondary dark:text-gray-400 block pb-1.5 border-b border-gray-50">تدرج العقوبات الدستورية الكشفية:</span>
             
             <div className="space-y-2">
@@ -443,7 +443,7 @@ export function PenaltiesScreen() {
                   className={`w-full p-4 rounded-xl text-right transition-all flex items-center justify-between border ${
                     selectedPenalty?.id === pen.id
                       ? 'bg-red-50/50 dark:bg-red-950/20 border-red-200 text-red-700 dark:text-red-400 font-bold'
-                      : 'bg-gray-50 dark:bg-[#131914] border-gray-100 dark:border-emerald-950/20 text-text-secondary dark:text-gray-300 hover:bg-gray-100/60 dark:hover:bg-[#1d241f]'
+                      : 'bg-gray-50 dark:bg-[#150e0f] border-gray-100 dark:border-red-950/20 text-text-secondary dark:text-gray-300 hover:bg-gray-100/60 dark:hover:bg-[#251214]'
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -463,7 +463,7 @@ export function PenaltiesScreen() {
               key={selectedPenalty.id}
               initial={{ opacity: 0, x: -15 }}
               animate={{ opacity: 1, x: 0 }}
-              className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-6 md:p-8 rounded-3xl shadow-sm space-y-6 text-right"
+              className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-6 md:p-8 rounded-3xl shadow-sm space-y-6 text-right"
             >
               <div>
                 <h3 className="font-extrabold text-lg text-text-primary dark:text-white">{selectedPenalty.type}</h3>
@@ -481,13 +481,13 @@ export function PenaltiesScreen() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
                   <div className="space-y-3">
                     <h5 className="font-bold text-sm text-text-primary dark:text-white border-b border-gray-100 pb-1.5 flex items-center gap-1.5">
-                      <CheckCircle className="w-4 h-4 text-emerald-600" />
+                      <CheckCircle className="w-4 h-4 text-primary" />
                       <span>حقوق المتهم الدستورية المضمونة:</span>
                     </h5>
                     <ul className="space-y-2 text-xs text-text-secondary dark:text-gray-400 leading-relaxed font-semibold">
                       {selectedPenalty.rights.map((rig, idx) => (
                         <li key={idx} className="flex items-start gap-1.5">
-                          <span className="text-emerald-600">•</span>
+                          <span className="text-primary">•</span>
                           <span>{rig}</span>
                         </li>
                       ))}
@@ -547,7 +547,7 @@ export function DocumentsScreen() {
       </div>
 
       {/* Filter and Docs List */}
-      <div className="relative max-w-md bg-white dark:bg-[#1a201b] rounded-xl border border-gray-100 dark:border-emerald-950 p-1 flex items-center shadow-xs">
+      <div className="relative max-w-md bg-white dark:bg-[#110708] rounded-xl border border-gray-100 dark:border-red-950/20 p-1 flex items-center shadow-xs">
         <Search className="w-4 h-4 text-gray-400 mr-2" />
         <input 
           type="text"
@@ -562,7 +562,7 @@ export function DocumentsScreen() {
         {filteredDocs.map((doc) => (
           <div 
             key={doc.id}
-            className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-6 rounded-3xl shadow-sm flex flex-col justify-between group text-right space-y-4"
+            className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-6 rounded-3xl shadow-sm flex flex-col justify-between group text-right space-y-4"
           >
             <div className="space-y-3">
               <span className="text-[10px] text-primary dark:text-primary-light font-bold bg-primary/5 dark:bg-primary/25 rounded-md px-2.5 py-1 inline-block">
@@ -576,7 +576,7 @@ export function DocumentsScreen() {
               </p>
             </div>
 
-            <div className="pt-4 border-t border-gray-50 dark:border-emerald-950/40 flex justify-between items-center text-xs">
+            <div className="pt-4 border-t border-gray-50 dark:border-red-950/10 flex justify-between items-center text-xs">
               <span className="text-[10px] font-bold text-text-secondary dark:text-gray-400">نوع الملف: مستند تسييري دستوري</span>
               
               <div className="flex gap-2">
@@ -600,8 +600,8 @@ export function DocumentsScreen() {
 
       {selectedDoc && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-          <div className="bg-white dark:bg-[#161a16] border border-gray-100 dark:border-emerald-900/30 rounded-3xl p-6 md:p-8 max-w-xl w-full max-h-[80vh] overflow-y-auto space-y-6 text-right shadow-2xl">
-            <div className="flex justify-between items-center border-b border-gray-100 dark:border-emerald-950 pb-4">
+          <div className="bg-white dark:bg-[#150e0f] border border-gray-100 dark:border-red-950/20 rounded-3xl p-6 md:p-8 max-w-xl w-full max-h-[80vh] overflow-y-auto space-y-6 text-right shadow-2xl">
+            <div className="flex justify-between items-center border-b border-gray-100 dark:border-red-950/20 pb-4">
               <h3 className="font-extrabold text-base text-text-primary dark:text-white">{selectedDoc.title}</h3>
               <button
                 onClick={() => setSelectedDoc(null)}
@@ -613,7 +613,7 @@ export function DocumentsScreen() {
 
             <div className="space-y-4">
               <span className="text-xs text-secondary font-bold">صيغة المستند: وثيقة تشريعية أصلية</span>
-              <div className="text-sm text-text-secondary dark:text-gray-300 leading-relaxed bg-gray-50 dark:bg-emerald-950/20 p-4 rounded-xl font-bold">
+              <div className="text-sm text-text-secondary dark:text-gray-300 leading-relaxed bg-gray-50 dark:bg-red-950/25 p-4 rounded-xl font-bold">
                 {selectedDoc.content}
               </div>
               <p className="text-xs text-text-secondary dark:text-gray-400 leading-relaxed font-semibold">
@@ -621,10 +621,10 @@ export function DocumentsScreen() {
               </p>
             </div>
 
-            <div className="pt-6 border-t border-gray-100 dark:border-emerald-950 flex justify-end gap-2.5">
+            <div className="pt-6 border-t border-gray-100 dark:border-red-950/20 flex justify-end gap-2.5">
               <button
                 onClick={() => window.print()}
-                className="bg-gray-100 text-text-secondary dark:bg-[#202a21] dark:text-gray-300 px-4 py-2 rounded-full text-xs font-bold font-semibold"
+                className="bg-gray-100 text-text-secondary dark:bg-[#201012] dark:text-gray-300 px-4 py-2 rounded-full text-xs font-bold font-semibold"
               >
                 تحميل نسخة ورقية
               </button>

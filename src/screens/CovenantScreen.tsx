@@ -31,7 +31,7 @@ export function CovenantScreen() {
       title: 'شرف الكشّاف موثوق به وعليه يعتمد',
       details: 'الصدق والأمانة هما عماد شخصية القائد والفتى الكشفي التونسي. كلمته عهد صادق يلتزم به في شتى الظروف والبيئات ولا يحيد عنه.',
       icon: ShieldCheck,
-      color: 'border-emerald-500 bg-emerald-50/20 text-emerald-700 dark:text-emerald-400'
+      color: 'border-primary bg-red-50/20 text-red-700 dark:text-red-400'
     },
     {
       num: 2,
@@ -94,7 +94,7 @@ export function CovenantScreen() {
       title: 'الكشّاف طاهر في الفكر والقول والعمل',
       details: 'النقاء والنزاهة هما تاج الكشاف. يبتعد عن اللغو، يحرر فكره من السلبية، ويلتزم بالسلوك الأخلاقي القويم ليضرب أبهى صور الشرف.',
       icon: CheckCircle,
-      color: 'border-emerald-600 bg-emerald-50/10 text-emerald-800 dark:text-emerald-300'
+      color: 'border-primary bg-red-50/10 text-red-800 dark:text-red-300'
     }
   ];
 
@@ -122,7 +122,7 @@ export function CovenantScreen() {
       desc: 'وسام دبلوماسي مخصص لدور تبادل الثقافات والحوار الحضاري ونشر السلام.',
       criteria: 'يُمنح للقادة التونسيين والأجانب والمنظمات الصديقة التي أسهمت في بناء شراكات دولية وتمويل مشاريع خيرية أو بيئية بالبلاد التونسية بالتنسيق مع القيادة العامة للكشافة التونسية.',
       benefits: 'نيل دروع التقدير الدولية وبطاقة معتمد وظيفي دبلوماسي بالروابط الخارجية للكشافة التونسية ولجان العلاقات العامة.',
-      badgeColor: 'text-primary bg-emerald-50 dark:bg-[#162218]'
+      badgeColor: 'text-primary bg-red-50 dark:bg-[#200e0f]'
     },
     {
       id: 'medal_merit_silver',
@@ -183,7 +183,7 @@ export function CovenantScreen() {
       </div>
 
       {/* Tabs */}
-      <div className="flex bg-gray-100/60 dark:bg-[#131914] p-1 rounded-2xl border border-gray-100 dark:border-emerald-950/40 max-w-xl overflow-x-auto scrollbar-none">
+      <div className="flex bg-gray-100/60 dark:bg-[#150e0f] p-1 rounded-2xl border border-gray-100 dark:border-red-950/20 max-w-xl overflow-x-auto scrollbar-none">
         {(['promise', 'law', 'history', 'medals'] as const).map((tab) => (
           <button
             key={tab}
@@ -191,7 +191,7 @@ export function CovenantScreen() {
             className={`flex-1 min-w-[100px] py-3 px-4 rounded-xl text-xs font-bold transition-all ${
               activeTab === tab
                 ? 'bg-primary text-white shadow-sm'
-                : 'text-text-secondary dark:text-gray-300 hover:bg-white/40 dark:hover:bg-[#1e271f]'
+                : 'text-text-secondary dark:text-gray-300 hover:bg-white/40 dark:hover:bg-[#1e0e10]'
             }`}
           >
             {tab === 'promise' ? 'الوعد الكشفي' 
@@ -215,7 +215,7 @@ export function CovenantScreen() {
             className="grid grid-cols-1 lg:grid-cols-12 gap-6"
           >
             {/* Immersive Promise Card Frame */}
-            <div className="lg:col-span-7 bg-gradient-to-tr from-emerald-950 via-primary to-emerald-900 text-white rounded-3xl p-8 md:p-10 relative overflow-hidden shadow-xl">
+            <div className="lg:col-span-7 bg-gradient-to-tr from-red-950 via-primary to-red-900 text-white rounded-3xl p-8 md:p-10 relative overflow-hidden shadow-xl">
               <div className="absolute inset-0 opacity-[0.06] bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
               <div className="absolute left-[-20px] bottom-[-20px] w-48 h-48 bg-secondary/20 rounded-full blur-3xl"></div>
               
@@ -240,7 +240,7 @@ export function CovenantScreen() {
                   </p>
                 </div>
 
-                <div className="flex gap-4 pt-2 text-xs font-semibold leading-relaxed text-emerald-100/90">
+                <div className="flex gap-4 pt-2 text-xs font-semibold leading-relaxed text-red-100/90">
                   <p>
                     أداء هذا الوعد هو المدخل الإجباري والروحي للانخراط الرسمي وتلقي رتبة قائد أو كشاف. يُلقى الوعد في وقفة العهد الرسمية للفوج يميناً تحت الراية الوطنية للجمهورية التونسية وبثلاثة من أصابع اليد اليمنى مرفوعة (التي ترمز للواجبات الثلاثة).
                   </p>
@@ -250,8 +250,8 @@ export function CovenantScreen() {
 
             {/* Core Values Sidebar */}
             <div className="lg:col-span-5 space-y-4">
-              <div className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-6 rounded-3xl shadow-sm text-right space-y-4">
-                <h4 className="font-extrabold text-sm text-text-primary dark:text-white flex items-center gap-2 border-b border-gray-50 dark:border-emerald-950 pb-2.5">
+              <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-6 rounded-3xl shadow-sm text-right space-y-4">
+                <h4 className="font-extrabold text-sm text-text-primary dark:text-white flex items-center gap-2 border-b border-gray-50 dark:border-red-950/20 pb-2.5">
                   <CheckCircle className="w-4 h-4 text-primary" />
                   <span>دلالات شارات رموز أصابع الوعد الكشفي الثلاثة:</span>
                 </h4>
@@ -265,7 +265,7 @@ export function CovenantScreen() {
                     </div>
                   </div>
 
-                  <div className="flex gap-3 leading-snug pt-1 border-t border-gray-50 dark:border-emerald-950/20">
+                  <div className="flex gap-3 leading-snug pt-1 border-t border-gray-50 dark:border-red-950/20">
                     <span className="w-6 h-6 rounded-full bg-orange-100 text-orange-700 dark:bg-orange-950/30 dark:text-orange-400 flex items-center justify-center text-xs font-black shrink-0">2</span>
                     <div>
                       <span className="text-xs font-black text-text-primary dark:text-white block">الواجب نحو الآخرين ومساعدة الناس</span>
@@ -273,7 +273,7 @@ export function CovenantScreen() {
                     </div>
                   </div>
 
-                  <div className="flex gap-3 leading-snug pt-1 border-t border-gray-50 dark:border-emerald-950/20">
+                  <div className="flex gap-3 leading-snug pt-1 border-t border-gray-50 dark:border-red-950/20">
                     <span className="w-6 h-6 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-950/30 dark:text-indigo-400 flex items-center justify-center text-xs font-black shrink-0">3</span>
                     <div>
                       <span className="text-xs font-black text-text-primary dark:text-white block">رداء قانون الكشافة وتطبيقه</span>
@@ -314,14 +314,14 @@ export function CovenantScreen() {
                     onClick={() => setExpandedLaw(isExpanded ? null : law.num)}
                     className={`border rounded-2xl p-4.5 cursor-pointer text-right transition-all group ${
                       isExpanded 
-                        ? 'bg-white dark:bg-[#1a201b] border-primary ring-2 ring-primary/10 shadow-md' 
-                        : 'bg-white dark:bg-[#1a201b] border-gray-100 dark:border-emerald-950 hover:bg-gray-50/50 dark:hover:bg-[#1f2720]/55 shadow-xs'
+                        ? 'bg-white dark:bg-[#110708] border-primary ring-2 ring-primary/10 shadow-md' 
+                        : 'bg-white dark:bg-[#110708] border-gray-100 dark:border-red-950/20 hover:bg-gray-50/50 dark:hover:bg-[#1e0e10]/55 shadow-xs'
                     }`}
                   >
                     <div className="flex items-center justify-between gap-4">
                       <div className="flex items-center gap-3">
                         <span className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 font-black text-xs border ${
-                          isExpanded ? 'bg-primary text-white border-primary' : 'bg-gray-50 dark:bg-[#141b15] text-text-secondary dark:text-gray-300 border-gray-200/50 dark:border-emerald-950'
+                          isExpanded ? 'bg-primary text-white border-primary' : 'bg-gray-50 dark:bg-[#150e0f] text-text-secondary dark:text-gray-300 border-gray-200/50 dark:border-red-950/20'
                         }`}>
                           {law.num}
                         </span>
@@ -340,7 +340,7 @@ export function CovenantScreen() {
                           exit={{ height: 0, opacity: 0 }}
                           className="overflow-hidden"
                         >
-                          <p className="text-[11px] md:text-xs text-text-secondary dark:text-gray-300 leading-relaxed mt-3 pt-3 border-t border-gray-50 dark:border-emerald-950/40 font-semibold bg-gray-50/50 dark:bg-[#111612]/30 p-2 rounded-xl">
+                          <p className="text-[11px] md:text-xs text-text-secondary dark:text-gray-300 leading-relaxed mt-3 pt-3 border-t border-gray-50 dark:border-red-950/20 font-semibold bg-gray-50/50 dark:bg-[#110708]/30 p-2 rounded-xl">
                             {law.details}
                           </p>
                         </motion.div>
@@ -376,7 +376,7 @@ export function CovenantScreen() {
                   {/* Timeline bullet dot */}
                   <div className="absolute right-[-21px] top-1 w-3.5 h-3.5 rounded-full bg-white dark:bg-[#161a16] border-2 border-primary group-hover:bg-secondary group-hover:scale-125 transition-all"></div>
                   
-                  <div className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-5 rounded-3xl shadow-xs transition-all hover:bg-gray-50/50 dark:hover:bg-[#1e271f]/60 max-w-3xl">
+                  <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-5 rounded-3xl shadow-xs transition-all hover:bg-gray-50/50 dark:hover:bg-[#1e0e10]/60 max-w-3xl">
                     <div className="flex items-center gap-3">
                       <span className="text-sm font-black text-secondary bg-orange-50 dark:bg-orange-950/30 px-3 py-1 rounded-lg">
                         {milestone.year}
@@ -409,7 +409,7 @@ export function CovenantScreen() {
             {scoutMedals.map((medal) => (
               <div 
                 key={medal.id}
-                className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-6 rounded-3xl shadow-sm text-right flex flex-col justify-between space-y-4"
+                className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-6 rounded-3xl shadow-sm text-right flex flex-col justify-between space-y-4"
               >
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
@@ -436,7 +436,7 @@ export function CovenantScreen() {
                   </div>
                 </div>
 
-                <div className="pt-3 border-t border-gray-50 dark:border-emerald-950/40 flex justify-between items-baseline text-[10px] font-bold">
+                <div className="pt-3 border-t border-gray-50 dark:border-red-950/20 flex justify-between items-baseline text-[10px] font-bold">
                   <span className="text-text-secondary dark:text-gray-400">سلطة الإقرار: مفوضية التدريب والقيادة العامة</span>
                   <span className="text-secondary">{medal.id === 'medal_merit_gold' ? 'قلادة من الدرجة الأولى 🥇' : medal.id === 'medal_falcon' ? 'وسام تفوق شرفي 🦅' : 'وسام رسمي 🎖️'}</span>
                 </div>

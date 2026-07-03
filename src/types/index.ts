@@ -23,7 +23,7 @@ export interface CurriculumBlock {
 
 export interface Curriculum {
   id: string;
-  section: 'wolves' | 'boys' | 'rovers' | 'leaders'; // أشبال، فتيان، جوالة، رواد وأحباء
+  section: 'wolves' | 'boys' | 'advanced' | 'rovers' | 'leaders'; // أشبال، فتيان، متقدم، جوالة، رواد وأحباء
   title: string;
   ageGroup: string;
   badge: string;

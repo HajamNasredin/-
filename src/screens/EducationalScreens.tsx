@@ -62,7 +62,7 @@ export function EducationScreen({ favorites, toggleFavorite }: EducationScreenPr
       </div>
 
       {/* Global Filter Search Inside Education */}
-      <div className="relative max-w-md bg-white dark:bg-[#1a201b] rounded-2xl border border-gray-100 dark:border-emerald-950 p-1 flex items-center shadow-sm">
+      <div className="relative max-w-md bg-white dark:bg-[#110708] rounded-2xl border border-gray-100 dark:border-red-950/20 p-1 flex items-center shadow-sm">
         <Search className="w-5 h-5 text-gray-400 mr-3 shrink-0" />
         <input 
           type="text"
@@ -87,7 +87,7 @@ export function EducationScreen({ favorites, toggleFavorite }: EducationScreenPr
           <motion.div
             key={plan.id}
             whileHover={{ y: -4 }}
-            className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-900/35 rounded-3xl p-6 shadow-sm flex flex-col justify-between group cursor-pointer"
+            className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 rounded-3xl p-6 shadow-sm flex flex-col justify-between group cursor-pointer"
             onClick={() => setSelectedPlan(plan)}
           >
             <div className="space-y-4">
@@ -116,7 +116,7 @@ export function EducationScreen({ favorites, toggleFavorite }: EducationScreenPr
               </p>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-gray-50 dark:border-emerald-950/40 flex items-center justify-between text-xs font-bold text-primary dark:text-primary-light">
+            <div className="mt-6 pt-4 border-t border-gray-50 dark:border-red-950/20 flex items-center justify-between text-xs font-bold text-primary dark:text-primary-light">
               <span>تفاصيل الشروط والبحوث المعتمدة</span>
               <ArrowUpRight className="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors shrink-0" />
             </div>
@@ -124,7 +124,7 @@ export function EducationScreen({ favorites, toggleFavorite }: EducationScreenPr
         ))}
 
         {filteredPlans.length === 0 && (
-          <div className="col-span-full py-12 text-center text-text-secondary dark:text-gray-400 shadow-sm border border-gray-100 rounded-3xl bg-white dark:bg-[#1a201b]">
+          <div className="col-span-full py-12 text-center text-text-secondary dark:text-gray-400 shadow-sm border border-gray-100 rounded-3xl bg-white dark:bg-[#110708]">
             <HelpCircle className="w-10 h-10 mx-auto text-gray-200 dark:text-gray-700" />
             <p className="text-sm font-bold mt-2">لا يوجد مطابقة لـ خطة البحث</p>
             <p className="text-xs text-text-secondary dark:text-gray-500 mt-1">تأكد من إدخال رتب قيادية صحيحة مثل "أشبال" أو "جهة"</p>
@@ -141,9 +141,9 @@ export function EducationScreen({ favorites, toggleFavorite }: EducationScreenPr
               animate={{ y: 0 }}
               exit={{ y: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 220 }}
-              className="bg-white dark:bg-[#151c16] rounded-t-3xl sm:rounded-3xl p-6 md:p-8 w-full max-w-xl max-h-[85vh] overflow-y-auto text-right space-y-6 shadow-2xl border border-gray-100 dark:border-emerald-900/30"
+              className="bg-white dark:bg-[#150e0f] rounded-t-3xl sm:rounded-3xl p-6 md:p-8 w-full max-w-xl max-h-[85vh] overflow-y-auto text-right space-y-6 shadow-2xl border border-gray-100 dark:border-red-950/20"
             >
-              <div className="flex justify-between items-center border-b border-gray-100 dark:border-emerald-950 pb-4">
+              <div className="flex justify-between items-center border-b border-gray-100 dark:border-red-950/20 pb-4">
                 <div>
                   <h3 className="font-extrabold text-xl text-text-primary dark:text-white leading-snug">{selectedPlan.role}</h3>
                   <p className="text-xs text-primary dark:text-primary-light font-semibold mt-1">المستوى التعليمي: {selectedPlan.level}</p>
@@ -159,7 +159,7 @@ export function EducationScreen({ favorites, toggleFavorite }: EducationScreenPr
               <div className="space-y-4">
                 <div className="space-y-2">
                   <h4 className="font-bold text-sm text-text-primary dark:text-white">طبيعة ومهام هذه الرتبة القيادية:</h4>
-                  <p className="text-sm text-text-secondary dark:text-gray-300 leading-relaxed bg-gray-50 dark:bg-emerald-950/20 p-4 rounded-2xl border-r-4 border-primary">
+                  <p className="text-sm text-text-secondary dark:text-gray-300 leading-relaxed bg-gray-50 dark:bg-red-950/25 p-4 rounded-2xl border-r-4 border-primary">
                     {selectedPlan.description}
                   </p>
                 </div>
@@ -172,7 +172,7 @@ export function EducationScreen({ favorites, toggleFavorite }: EducationScreenPr
                   <ul className="space-y-2.5">
                     {selectedPlan.requirements.map((req, idx) => (
                       <li key={idx} className="text-sm text-text-secondary dark:text-gray-300 flex items-start gap-2.5">
-                        <span className="w-5 h-5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-primary dark:text-primary-light flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
+                        <span className="w-5 h-5 rounded-full bg-red-50 dark:bg-red-950/40 text-primary dark:text-primary-light flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
                           {idx + 1}
                         </span>
                         <span className="leading-relaxed">{req}</span>
@@ -182,12 +182,12 @@ export function EducationScreen({ favorites, toggleFavorite }: EducationScreenPr
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-gray-100 dark:border-emerald-950 flex justify-between">
+              <div className="pt-6 border-t border-gray-100 dark:border-red-950/20 flex justify-between">
                 <button
                   onClick={() => {
                     toggleFavorite(`edu_${selectedPlan.id}`);
                   }}
-                  className={`flex items-center gap-2 px-4 py-2 bg-gray-50 dark:bg-[#202a21] hover:bg-gray-100 rounded-full text-xs font-bold transition-all ${
+                  className={`flex items-center gap-2 px-4 py-2 bg-gray-50 dark:bg-[#201012] hover:bg-gray-100 rounded-full text-xs font-bold transition-all ${
                     favorites.includes(`edu_${selectedPlan.id}`) ? 'text-orange-500' : 'text-text-secondary dark:text-gray-300'
                   }`}
                 >
@@ -214,7 +214,7 @@ export function EducationScreen({ favorites, toggleFavorite }: EducationScreenPr
 // 2. CURRICULUM SCREEN
 // ==========================================
 export function CurriculumScreen() {
-  const [activeSegment, setActiveSegment] = useState<'wolves' | 'boys' | 'rovers' | 'leaders'>('wolves');
+  const [activeSegment, setActiveSegment] = useState<'wolves' | 'boys' | 'advanced' | 'rovers' | 'leaders'>('wolves');
   const [activeSubTab, setActiveSubTab] = useState<'goals' | 'principles' | 'progression' | 'activities'>('goals');
 
   const selectedCurriculum = CURRICULA.find(c => c.section === activeSegment);
@@ -222,8 +222,9 @@ export function CurriculumScreen() {
   const segments = [
     { id: 'wolves', label: 'قسم الأشبال', age: '7-12 سنة' },
     { id: 'boys', label: 'قسم الفتيان', age: '12-16 سنة' },
-    { id: 'rovers', label: 'قسم الجوالة', age: '15-18 سنة' },
-    { id: 'leaders', label: 'الرواد والأحباء', age: 'قدماء' }
+    { id: 'advanced', label: 'قسم المتقدم', age: '15-18 سنة' },
+    { id: 'rovers', label: 'قسم الجوالة والدليلات', age: '18-23 سنة' },
+    { id: 'leaders', label: 'الرواد والأحباء', age: 'أكبر من 23 سنة' }
   ];
 
   if (!selectedCurriculum) return null;
@@ -246,7 +247,7 @@ export function CurriculumScreen() {
       </div>
 
       {/* Horizontal Tabs Selection Segmented Control */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 bg-gray-100/60 dark:bg-[#131914] p-1.5 rounded-2xl border border-gray-100 dark:border-emerald-950/30">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 bg-gray-100/60 dark:bg-[#150e0f] p-1.5 rounded-2xl border border-gray-100 dark:border-red-950/20">
         {segments.map((seg) => (
           <button
             key={seg.id}
@@ -257,7 +258,7 @@ export function CurriculumScreen() {
             className={`py-3.5 px-3 rounded-xl transition-all text-center flex flex-col items-center justify-center gap-1 ${
               activeSegment === seg.id 
                 ? 'bg-primary text-white shadow-md shadow-primary/10' 
-                : 'text-text-secondary dark:text-gray-300 hover:bg-white/50 dark:hover:bg-[#1e271f]/60'
+                : 'text-text-secondary dark:text-gray-300 hover:bg-white/50 dark:hover:bg-[#201012]/60'
             }`}
           >
             <span className="font-extrabold text-sm">{seg.label}</span>
@@ -267,13 +268,13 @@ export function CurriculumScreen() {
       </div>
 
       {/* Sub-tabs Navigation */}
-      <div className="flex flex-wrap items-center justify-start gap-1.5 border-b border-gray-100 dark:border-emerald-950/40 pb-2">
+      <div className="flex flex-wrap items-center justify-start gap-1.5 border-b border-gray-100 dark:border-red-950/20 pb-2">
         <button
           onClick={() => setActiveSubTab('goals')}
           className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 ${
             activeSubTab === 'goals'
               ? 'bg-primary text-white shadow-sm'
-              : 'text-text-secondary dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#1e271f]/60'
+              : 'text-text-secondary dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#201012]/60'
           }`}
         >
           <span>🎯 الأهداف والمنهج</span>
@@ -283,7 +284,7 @@ export function CurriculumScreen() {
           className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 ${
             activeSubTab === 'principles'
               ? 'bg-primary text-white shadow-sm'
-              : 'text-text-secondary dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#1e271f]/60'
+              : 'text-text-secondary dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#201012]/60'
           }`}
         >
           <span>📜 الوعد والقانون</span>
@@ -293,7 +294,7 @@ export function CurriculumScreen() {
           className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 ${
             activeSubTab === 'progression'
               ? 'bg-primary text-white shadow-sm'
-              : 'text-text-secondary dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#1e271f]/60'
+              : 'text-text-secondary dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#201012]/60'
           }`}
         >
           <span>⚜️ شارات الترقي</span>
@@ -303,7 +304,7 @@ export function CurriculumScreen() {
           className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 ${
             activeSubTab === 'activities'
               ? 'bg-primary text-white shadow-sm'
-              : 'text-text-secondary dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#1e271f]/60'
+              : 'text-text-secondary dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#201012]/60'
           }`}
         >
           <span>🛠️ مجالات التنشيط والبرنامج</span>
@@ -322,14 +323,14 @@ export function CurriculumScreen() {
         >
           {/* Left Column: Core Badge and Summary */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="bg-gradient-to-br from-primary to-emerald-950 text-white p-6 rounded-3xl space-y-4 shadow-sm relative overflow-hidden">
+            <div className="bg-gradient-to-br from-primary to-[#250d11] text-white p-6 rounded-3xl space-y-4 shadow-sm relative overflow-hidden">
               <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
               <div className="relative z-10 space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="bg-white/15 backdrop-blur-md text-accent text-xs font-bold px-3 py-1.5 rounded-full border border-white/10">
                     {selectedCurriculum.badge}
                   </span>
-                  <span className="text-[10px] font-bold text-emerald-300 bg-[#122815]/80 px-2 py-0.5 rounded-md border border-emerald-900/30">
+                  <span className="text-[10px] font-bold text-red-300 bg-[#250d11]/80 px-2 py-0.5 rounded-md border border-red-900/30">
                     دليل 2026
                   </span>
                 </div>
@@ -340,8 +341,8 @@ export function CurriculumScreen() {
 
                 {selectedCurriculum.motto && (
                   <div className="pt-3 border-t border-white/10 flex items-center gap-2">
-                    <span className="text-xs text-emerald-300 font-bold">الشعار الرسمي للقسم:</span>
-                    <span className="text-xs font-black text-accent bg-emerald-900/50 px-2.5 py-1 rounded-xl">
+                    <span className="text-xs text-red-300 font-bold">الشعار الرسمي للقسم:</span>
+                    <span className="text-xs font-black text-accent bg-red-900/50 px-2.5 py-1 rounded-xl">
                       « {selectedCurriculum.motto} »
                     </span>
                   </div>
@@ -350,8 +351,8 @@ export function CurriculumScreen() {
             </div>
 
             {/* Official Source Reference Box */}
-            <div className="bg-emerald-50/50 dark:bg-emerald-950/20 p-4 rounded-3xl border border-emerald-100/50 dark:border-emerald-950/50 space-y-2 text-right">
-              <div className="flex items-center gap-2 text-primary dark:text-emerald-400 font-extrabold text-xs">
+            <div className="bg-red-50/50 dark:bg-red-950/25 p-4 rounded-3xl border border-red-100/50 dark:border-red-950/20 space-y-2 text-right">
+              <div className="flex items-center gap-2 text-primary dark:text-primary-light font-extrabold text-xs">
                 <Sparkles className="w-4 h-4 animate-pulse text-accent" />
                 <span>توثيق رسمي كشفي معتمد لعام 2026:</span>
               </div>
@@ -365,10 +366,10 @@ export function CurriculumScreen() {
           <div className="lg:col-span-8">
             {/* 1. GOALS TAB */}
             {activeSubTab === 'goals' && (
-              <div className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-6 rounded-3xl shadow-sm space-y-6">
+              <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-6 rounded-3xl shadow-sm space-y-6">
                 <div>
-                  <h4 className="font-extrabold text-base text-text-primary dark:text-white flex items-center gap-2 border-b border-gray-50 dark:border-emerald-950 pb-3">
-                    <span className="p-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-primary dark:text-emerald-300">🎯</span>
+                  <h4 className="font-extrabold text-base text-text-primary dark:text-white flex items-center gap-2 border-b border-gray-50 dark:border-red-950/20 pb-3">
+                    <span className="p-1.5 rounded-lg bg-red-50 dark:bg-red-950/40 text-primary dark:text-red-300">🎯</span>
                     <span>الأهداف التربوية الأساسية للبرنامج</span>
                   </h4>
                   <p className="text-xs text-text-secondary dark:text-gray-400 mt-2 leading-relaxed">
@@ -380,9 +381,9 @@ export function CurriculumScreen() {
                   {selectedCurriculum.educationalGoals.map((goal, idx) => (
                     <div 
                       key={idx} 
-                      className="flex gap-3 items-start bg-gray-50/60 dark:bg-[#131914] p-4 rounded-2xl border border-gray-100/50 dark:border-emerald-950/40 hover:border-emerald-200 dark:hover:border-emerald-900 transition-colors"
+                      className="flex gap-3 items-start bg-gray-50/60 dark:bg-[#150e0f] p-4 rounded-2xl border border-gray-100/50 dark:border-red-950/20 hover:border-red-200 dark:hover:border-red-950/60 transition-colors"
                     >
-                      <CheckCircle className="w-5 h-5 text-primary dark:text-emerald-400 shrink-0 mt-0.5" />
+                      <CheckCircle className="w-5 h-5 text-primary dark:text-primary-light shrink-0 mt-0.5" />
                       <p className="text-xs text-text-primary dark:text-gray-200 leading-relaxed font-bold">
                         {goal}
                       </p>
@@ -394,7 +395,7 @@ export function CurriculumScreen() {
 
             {/* 2. PRINCIPLES & PROMISE TAB */}
             {activeSubTab === 'principles' && (
-              <div className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-6 rounded-3xl shadow-sm space-y-6">
+              <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-6 rounded-3xl shadow-sm space-y-6">
                 {/* Promise Callout Card */}
                 {selectedCurriculum.promise && (
                   <div className="bg-gradient-to-l from-red-50 to-red-100/30 dark:from-[#351914] dark:to-[#1a1010] p-6 rounded-3xl border border-red-100/60 dark:border-red-950/50 relative overflow-hidden">
@@ -423,8 +424,8 @@ export function CurriculumScreen() {
                     </h5>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                       {selectedCurriculum.law.map((item, idx) => (
-                        <div key={idx} className="bg-gray-50/50 dark:bg-[#131914] p-3.5 rounded-2xl border border-gray-100/50 dark:border-emerald-950/30 flex items-start gap-2.5">
-                          <span className="w-5 h-5 rounded-full bg-emerald-100/70 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-extrabold text-[10px] flex items-center justify-center shrink-0 mt-0.5">
+                        <div key={idx} className="bg-gray-50/50 dark:bg-[#150e0f] p-3.5 rounded-2xl border border-gray-100/50 dark:border-red-950/20 flex items-start gap-2.5">
+                          <span className="w-5 h-5 rounded-full bg-red-100/70 dark:bg-red-950 text-red-800 dark:text-red-300 font-extrabold text-[10px] flex items-center justify-center shrink-0 mt-0.5">
                             {idx + 1}
                           </span>
                           <p className="text-xs text-text-secondary dark:text-gray-300 leading-relaxed font-bold">{item}</p>
@@ -443,7 +444,7 @@ export function CurriculumScreen() {
                   <ul className="space-y-2.5">
                     {selectedCurriculum.principles.map((p, idx) => (
                       <li key={idx} className="text-xs text-text-secondary dark:text-gray-300 flex items-start gap-2 leading-relaxed font-semibold">
-                        <span className="text-primary dark:text-emerald-400 mt-0.5">◀</span>
+                        <span className="text-primary dark:text-primary-light mt-0.5">◀</span>
                         <span>{p}</span>
                       </li>
                     ))}
@@ -454,10 +455,10 @@ export function CurriculumScreen() {
 
             {/* 3. PROGRESSION & BADGES TAB */}
             {activeSubTab === 'progression' && (
-              <div className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-6 rounded-3xl shadow-sm space-y-6">
+              <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-6 rounded-3xl shadow-sm space-y-6">
                 <div>
-                  <h4 className="font-extrabold text-base text-text-primary dark:text-white flex items-center gap-2 border-b border-gray-50 dark:border-emerald-950 pb-3">
-                    <span className="p-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-primary dark:text-emerald-300">⚜️</span>
+                  <h4 className="font-extrabold text-base text-text-primary dark:text-white flex items-center gap-2 border-b border-gray-50 dark:border-red-950/20 pb-3">
+                    <span className="p-1.5 rounded-lg bg-red-50 dark:bg-red-950/40 text-primary dark:text-red-300">⚜️</span>
                     <span>مسار مراحل الترقي الكشفية وشارات الجدارة لعام 2026</span>
                   </h4>
                   <p className="text-xs text-text-secondary dark:text-gray-400 mt-2 leading-relaxed">
@@ -468,13 +469,13 @@ export function CurriculumScreen() {
                 {/* Vertical Stepper Timeline */}
                 {selectedCurriculum.progression && (
                   <div className="relative space-y-6 pt-2">
-                    <div className="absolute right-4 top-2 bottom-2 w-0.5 bg-gray-100 dark:bg-emerald-950"></div>
+                    <div className="absolute right-4 top-2 bottom-2 w-0.5 bg-gray-100 dark:bg-red-950/20"></div>
                     {selectedCurriculum.progression.map((prog, idx) => {
                       const [title, desc] = prog.split(': ');
                       return (
                         <div key={idx} className="relative flex gap-4 pr-9 text-right">
-                          <div className="absolute right-2 top-1.5 w-4.5 h-4.5 rounded-full bg-primary border-4 border-white dark:border-[#1a201b] shadow-sm shrink-0 z-10"></div>
-                          <div className="space-y-1 bg-gray-50/50 dark:bg-[#131914] p-4 rounded-2xl border border-gray-100/50 dark:border-emerald-950/30 w-full hover:shadow-xs transition-shadow">
+                          <div className="absolute right-2 top-1.5 w-4.5 h-4.5 rounded-full bg-primary border-4 border-white dark:border-[#110708] shadow-sm shrink-0 z-10"></div>
+                          <div className="space-y-1 bg-gray-50/50 dark:bg-[#150e0f] p-4 rounded-2xl border border-gray-100/50 dark:border-red-950/20 w-full hover:shadow-xs transition-shadow">
                             <span className="text-[10px] text-primary dark:text-primary-light font-black uppercase tracking-wider block">
                               المرحلة {idx + 1}
                             </span>
@@ -491,10 +492,10 @@ export function CurriculumScreen() {
 
             {/* 4. ACTIVITIES TAB */}
             {activeSubTab === 'activities' && (
-              <div className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-6 rounded-3xl shadow-sm space-y-5">
+              <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-6 rounded-3xl shadow-sm space-y-5">
                 <div>
-                  <h4 className="font-extrabold text-base text-text-primary dark:text-white flex items-center gap-2 border-b border-gray-50 dark:border-emerald-950 pb-3">
-                    <span className="p-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-primary dark:text-emerald-300">🛠️</span>
+                  <h4 className="font-extrabold text-base text-text-primary dark:text-white flex items-center gap-2 border-b border-gray-50 dark:border-red-950/20 pb-3">
+                    <span className="p-1.5 rounded-lg bg-red-50 dark:bg-red-950/40 text-primary dark:text-red-300">🛠️</span>
                     <span>تفصيل البرنامج العملي ومجالات التنشيط للقسم</span>
                   </h4>
                   <p className="text-xs text-text-secondary dark:text-gray-400 mt-2 leading-relaxed">
@@ -506,7 +507,7 @@ export function CurriculumScreen() {
                   {selectedCurriculum.activities.map((act, index) => (
                     <div 
                       key={index}
-                      className="bg-gray-50/50 dark:bg-[#131914] p-4.5 rounded-2xl border border-gray-100/60 dark:border-emerald-950/40 relative overflow-hidden group hover:border-emerald-200 dark:hover:border-emerald-900 transition-all text-right"
+                      className="bg-gray-50/50 dark:bg-[#150e0f] p-4.5 rounded-2xl border border-gray-100/60 dark:border-red-950/20 relative overflow-hidden group hover:border-red-200 dark:hover:border-red-900 transition-all text-right"
                     >
                       <div className="absolute right-0 top-0 w-1.5 h-full bg-secondary group-hover:bg-primary transition-colors"></div>
                       <h5 className="font-extrabold text-sm text-text-primary dark:text-white group-hover:text-primary transition-colors">{act.title}</h5>
@@ -582,7 +583,7 @@ export function TrainingScreen() {
       {/* Structured Vertical Chronological Timeline */}
       <div className="relative max-w-4xl mx-auto space-y-8 pt-4">
         {/* Central connecting line */}
-        <div className="absolute right-6 top-10 bottom-10 w-1 bg-gray-100 dark:bg-emerald-950"></div>
+        <div className="absolute right-6 top-10 bottom-10 w-1 bg-gray-100 dark:bg-red-950/20"></div>
 
         {TRAINING_PATHS.map((step, idx) => {
           const isCompleted = completedSteps.includes(step.id);
@@ -600,7 +601,7 @@ export function TrainingScreen() {
                 className={`w-12 h-12 rounded-full shrink-0 z-10 border-4 ${
                   isCompleted 
                     ? 'bg-primary border-primary-light text-white' 
-                    : 'bg-white border-gray-200 dark:bg-[#131914] dark:border-emerald-950 text-gray-300'
+                    : 'bg-white border-gray-200 dark:bg-[#150e0f] dark:border-red-950/20 text-gray-300'
                 } flex items-center justify-center shadow-md cursor-pointer transition-all hover:scale-105`}
               >
                 {isCompleted ? (
@@ -610,7 +611,7 @@ export function TrainingScreen() {
                 )}
               </button>
 
-              <div className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-6 rounded-3xl shadow-sm flex-1 space-y-4">
+              <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-6 rounded-3xl shadow-sm flex-1 space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
                     <h3 className="font-extrabold text-lg text-text-primary dark:text-white">{step.title}</h3>
@@ -638,8 +639,8 @@ export function TrainingScreen() {
                   <span className="text-xs font-bold text-text-primary dark:text-white">شروط التسجيل وحضور الحقيبة:</span>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {step.requirements.map((req, rIdx) => (
-                      <div key={rIdx} className="flex gap-2 items-center bg-gray-50/50 dark:bg-[#131914] p-2 rounded-xl text-xs text-text-secondary dark:text-gray-300 border border-gray-100 dark:border-emerald-950/40 font-medium">
-                        <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                      <div key={rIdx} className="flex gap-2 items-center bg-gray-50/50 dark:bg-[#150e0f] p-2 rounded-xl text-xs text-text-secondary dark:text-gray-300 border border-gray-100 dark:border-red-950/20 font-medium">
+                        <CheckCircle className="w-4 h-4 text-primary dark:text-primary-light shrink-0" />
                         <span>{req}</span>
                       </div>
                     ))}
@@ -651,8 +652,8 @@ export function TrainingScreen() {
                     onClick={() => handleToggleStep(step.id)}
                     className={`text-xs font-bold py-1.5 px-3.5 rounded-full transition-all ${
                       isCompleted 
-                        ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300' 
-                        : 'bg-primary/5 text-primary hover:bg-primary/15 dark:bg-[#202b21] dark:text-primary-light'
+                        ? 'bg-red-50 text-red-700 dark:bg-red-950/40 dark:text-red-300' 
+                        : 'bg-primary/5 text-primary hover:bg-primary/15 dark:bg-[#201012] dark:text-primary-light'
                     }`}
                   >
                     {isCompleted ? '✓ أتممت بنجاح' : 'تأكيد اجتياز المستوى'}
@@ -1281,7 +1282,7 @@ export function ActivityPlannerScreen() {
               setPrintSectionFilter(sectionFilter);
               setShowPrintModal(true);
             }}
-            className="bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-700 dark:hover:bg-emerald-800 text-white font-extrabold text-xs px-5 py-3 rounded-full flex items-center gap-2 shadow-lg shadow-emerald-600/10 transition-all hover:scale-[1.02]"
+            className="bg-red-600 hover:bg-red-700 dark:bg-red-700 dark:hover:bg-red-800 text-white font-extrabold text-xs px-5 py-3 rounded-full flex items-center gap-2 shadow-lg shadow-red-600/10 transition-all hover:scale-[1.02]"
           >
             <Printer className="w-4.5 h-4.5" />
             <span>تصدير للطباعة / PDF</span>
@@ -1298,7 +1299,7 @@ export function ActivityPlannerScreen() {
       </div>
 
       {/* SCREEN TABS */}
-      <div className="flex border-b border-gray-100 dark:border-emerald-950/60 pb-px gap-6">
+      <div className="flex border-b border-gray-100 dark:border-red-950/20 pb-px gap-6">
         <button
           onClick={() => setActiveTab('calendar')}
           className={`pb-3 text-sm font-extrabold relative transition-colors ${
@@ -1337,13 +1338,13 @@ export function ActivityPlannerScreen() {
           
           {/* LEFT PANEL: INTERACTIVE MONTHLY CALENDAR GRID */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950/60 rounded-3xl p-5 shadow-xs">
+            <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 rounded-3xl p-5 shadow-xs">
               
               {/* Calendar Controls */}
-              <div className="flex items-center justify-between pb-4 border-b border-gray-50 dark:border-emerald-950/40">
+              <div className="flex items-center justify-between pb-4 border-b border-gray-50 dark:border-red-950/20">
                 <button
                   onClick={handlePrevMonth}
-                  className="p-1.5 rounded-xl hover:bg-gray-100 dark:hover:bg-emerald-950/30 text-text-secondary dark:text-gray-400 transition-colors"
+                  className="p-1.5 rounded-xl hover:bg-gray-100 dark:hover:bg-[#201012] text-text-secondary dark:text-gray-400 transition-colors"
                   title="الشهر السابق"
                 >
                   <ChevronRight className="w-5 h-5" />
@@ -1358,7 +1359,7 @@ export function ActivityPlannerScreen() {
 
                 <button
                   onClick={handleNextMonth}
-                  className="p-1.5 rounded-xl hover:bg-gray-100 dark:hover:bg-emerald-950/30 text-text-secondary dark:text-gray-400 transition-colors"
+                  className="p-1.5 rounded-xl hover:bg-gray-100 dark:hover:bg-[#201012] text-text-secondary dark:text-gray-400 transition-colors"
                   title="الشهر التالي"
                 >
                   <ChevronLeft className="w-5 h-5" />
@@ -1391,12 +1392,12 @@ export function ActivityPlannerScreen() {
                       disabled={!dayObj.isCurrentMonth}
                       className={`relative aspect-square rounded-2xl flex flex-col items-center justify-center p-1 transition-all text-xs font-extrabold ${
                         !dayObj.isCurrentMonth 
-                          ? 'text-gray-200 dark:text-emerald-950/20 cursor-default pointer-events-none' 
+                          ? 'text-gray-200 dark:text-red-950/10 cursor-default pointer-events-none' 
                           : isSelected
                             ? 'bg-red-600 text-white shadow-md shadow-red-600/20 scale-[1.04]'
                             : isToday
                               ? 'bg-red-50 text-red-600 border border-red-200 dark:bg-rose-950/20 dark:border-rose-900/60 dark:text-rose-300'
-                              : 'bg-gray-50/50 hover:bg-gray-100/80 dark:bg-[#121612]/40 dark:hover:bg-[#202921]/60 text-text-primary dark:text-gray-300'
+                              : 'bg-gray-50/50 hover:bg-gray-100/80 dark:bg-[#150e0f]/40 dark:hover:bg-[#201012]/60 text-text-primary dark:text-gray-300'
                       }`}
                     >
                       <span>{dayObj.day}</span>
@@ -1443,7 +1444,7 @@ export function ActivityPlannerScreen() {
             </div>
 
             {/* Quick stats on sections */}
-            <div className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950/60 rounded-3xl p-5 shadow-xs text-xs space-y-3">
+            <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 rounded-3xl p-5 shadow-xs text-xs space-y-3">
               <h4 className="font-extrabold text-xs text-text-primary dark:text-white">دليل ألوان الفروع والمراحل التربوية:</h4>
               <div className="grid grid-cols-2 gap-2.5 font-bold">
                 <div className="flex items-center gap-2">
@@ -1474,13 +1475,13 @@ export function ActivityPlannerScreen() {
           <div className="lg:col-span-7 space-y-4">
             
             {/* Quick Filer bar */}
-            <div className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950/60 p-4 rounded-3xl flex flex-col md:flex-row gap-3 items-center justify-between shadow-xs">
+            <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-4 rounded-3xl flex flex-col md:flex-row gap-3 items-center justify-between shadow-xs">
               <div className="flex items-center gap-2 w-full md:w-auto">
                 <span className="text-xs font-bold text-text-secondary dark:text-gray-400 shrink-0"> تصفية المرحلة:</span>
                 <select
                   value={sectionFilter}
                   onChange={(e) => setSectionFilter(e.target.value)}
-                  className="bg-gray-50 dark:bg-[#131914] border border-gray-100 dark:border-emerald-950/60 rounded-xl px-2.5 py-1.5 text-xs font-bold text-text-primary dark:text-white"
+                  className="bg-gray-50 dark:bg-[#150e0f] border border-gray-100 dark:border-red-950/20 rounded-xl px-2.5 py-1.5 text-xs font-bold text-text-primary dark:text-white"
                 >
                   {SECTIONS.map(sec => (
                     <option key={sec} value={sec}>{sec}</option>
@@ -1488,7 +1489,7 @@ export function ActivityPlannerScreen() {
                 </select>
               </div>
 
-              <div className="relative bg-gray-50 dark:bg-[#131914] border border-gray-100 dark:border-emerald-950/60 rounded-xl flex items-center px-2 w-full md:w-64">
+              <div className="relative bg-gray-50 dark:bg-[#150e0f] border border-gray-100 dark:border-red-950/20 rounded-xl flex items-center px-2 w-full md:w-64">
                 <Search className="w-4 h-4 text-gray-400 mr-1.5 shrink-0" />
                 <input
                   type="text"
@@ -1511,12 +1512,12 @@ export function ActivityPlannerScreen() {
                   <motion.div
                     key={act.id}
                     layoutId={act.id}
-                    className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-900/40 rounded-3xl p-6 shadow-sm flex flex-col justify-between space-y-4 text-right hover:border-red-200 dark:hover:border-red-950/70 transition-all text-sm font-bold relative overflow-hidden"
+                    className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 rounded-3xl p-6 shadow-sm flex flex-col justify-between space-y-4 text-right hover:border-red-200 dark:hover:border-red-950/70 transition-all text-sm font-bold relative overflow-hidden"
                   >
                     <div className="space-y-3">
                       
                       {/* Card meta row */}
-                      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-50 dark:border-emerald-950/40 pb-2.5">
+                      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-50 dark:border-red-950/20 pb-2.5">
                         <div className="flex items-center gap-2">
                           <span className="text-[10px] font-extrabold text-white bg-primary rounded-md px-2.5 py-1">
                             {act.section}
@@ -1548,7 +1549,7 @@ export function ActivityPlannerScreen() {
                         <h4 className="font-black text-base text-text-primary dark:text-white leading-snug">
                           {act.title}
                         </h4>
-                        <p className="text-[11px] text-emerald-700 dark:text-emerald-400 font-black flex items-center gap-1">
+                        <p className="text-[11px] text-red-700 dark:text-red-400 font-black flex items-center gap-1">
                           <span>الهدف العام:</span>
                           <span className="font-semibold">{act.goal}</span>
                         </p>
@@ -1560,13 +1561,13 @@ export function ActivityPlannerScreen() {
                       </p>
 
                       {/* Materials */}
-                      <div className="bg-gray-50 dark:bg-[#131914] p-3.5 rounded-2xl text-[11px] text-text-secondary dark:text-gray-400 leading-relaxed border border-gray-100 dark:border-emerald-950/40 space-y-1 font-bold">
+                      <div className="bg-gray-50 dark:bg-[#150e0f] p-3.5 rounded-2xl text-[11px] text-text-secondary dark:text-gray-400 leading-relaxed border border-gray-100 dark:border-red-950/20 space-y-1 font-bold">
                         <span className="text-text-primary dark:text-white font-black block">المستلزمات والأدوات المطلوبة:</span>
                         <p className="text-[10px] font-semibold">{act.materials}</p>
                       </div>
 
                       {/* Reminder status / action */}
-                      <div className="pt-3 border-t border-gray-50 dark:border-emerald-950/40 flex items-center justify-between">
+                      <div className="pt-3 border-t border-gray-50 dark:border-red-950/20 flex items-center justify-between">
                         {hasActiveReminder ? (
                           <div className="flex items-center gap-2 text-yellow-600 dark:text-yellow-400">
                             <span className="relative flex h-2.5 w-2.5">
@@ -1596,7 +1597,7 @@ export function ActivityPlannerScreen() {
               })}
 
               {filteredActivities.length === 0 && (
-                <div className="py-16 text-center text-text-secondary dark:text-gray-400 border border-gray-100 dark:border-emerald-950 rounded-3xl bg-white dark:bg-[#1a201b] space-y-2">
+                <div className="py-16 text-center text-text-secondary dark:text-gray-400 border border-gray-100 dark:border-red-950/20 rounded-3xl bg-white dark:bg-[#110708] space-y-2">
                   <Calendar className="w-12 h-12 mx-auto text-gray-200 dark:text-gray-700" strokeWidth="1.5" />
                   <p className="text-sm font-bold">لم تدرج أي أنشطة كشفية مطابقة لهذا اليوم/الفرز</p>
                   <p className="text-xs text-text-secondary dark:text-gray-500 font-semibold">استعمل زر "إضافة نشاط مخصص جديد" لبرمجة يوم كشفي بالكامل.</p>
@@ -1610,8 +1611,8 @@ export function ActivityPlannerScreen() {
       ) : (
         
         /* ACTIVE REMINDERS LIST TAB PANEL */
-        <div className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950/60 rounded-3xl p-6 shadow-sm space-y-6">
-          <div className="flex items-center justify-between border-b border-gray-50 dark:border-emerald-950 pb-4">
+        <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 rounded-3xl p-6 shadow-sm space-y-6">
+          <div className="flex items-center justify-between border-b border-gray-50 dark:border-red-950/20 pb-4">
             <div>
               <h3 className="font-extrabold text-base text-text-primary dark:text-white">منصة إدارة التنبيهات الموقوتة</h3>
               <p className="text-xs text-text-secondary dark:text-gray-400 mt-1">تتبع التنبيهات الكشفية التي تم برمجتها بمتصفح الفوج والمستمدة من localStorage.</p>
@@ -1628,8 +1629,8 @@ export function ActivityPlannerScreen() {
                 key={rem.id}
                 className={`p-5 rounded-2xl border transition-all text-xs font-bold leading-relaxed flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 ${
                   rem.isActive 
-                    ? 'bg-amber-50/20 border-amber-200 dark:bg-emerald-950/20 dark:border-emerald-900/60 text-text-primary dark:text-white' 
-                    : 'bg-gray-50/50 border-gray-100 dark:bg-[#121612]/30 dark:border-emerald-950/30 text-gray-400'
+                    ? 'bg-amber-50/20 border-amber-200 dark:bg-red-950/20 dark:border-red-900/40 text-text-primary dark:text-white' 
+                    : 'bg-gray-50/50 border-gray-100 dark:bg-[#150e0f]/30 dark:border-red-950/20 text-gray-400'
                 }`}
               >
                 <div className="space-y-2 flex-1">
@@ -1701,13 +1702,13 @@ export function ActivityPlannerScreen() {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-white dark:bg-[#161a16] border border-gray-100 dark:border-emerald-900/30 rounded-3xl p-6 md:p-8 max-w-xl w-full max-h-[90vh] overflow-y-auto space-y-5 text-right shadow-2xl relative"
+              className="bg-white dark:bg-[#150e0f] border border-gray-100 dark:border-red-950/20 rounded-3xl p-6 md:p-8 max-w-xl w-full max-h-[90vh] overflow-y-auto space-y-5 text-right shadow-2xl relative"
             >
-              <div className="flex justify-between items-center border-b border-gray-50 dark:border-emerald-950 pb-3">
+              <div className="flex justify-between items-center border-b border-gray-50 dark:border-red-950/20 pb-3">
                 <h3 className="font-extrabold text-base text-text-primary dark:text-white">إضافة نشاط مخصص في الرزنامة الكشفية</h3>
                 <button
                   onClick={() => setShowAddActivityModal(false)}
-                  className="bg-gray-100 dark:bg-[#202921] text-text-secondary dark:text-gray-300 font-bold px-3 py-1 rounded-full text-xs"
+                  className="bg-gray-100 dark:bg-[#201012] text-text-secondary dark:text-gray-300 font-bold px-3 py-1 rounded-full text-xs"
                 >
                   إغلاق
                 </button>
@@ -1722,7 +1723,7 @@ export function ActivityPlannerScreen() {
                     value={newTitle}
                     onChange={(e) => setNewTitle(e.target.value)}
                     placeholder="مثال: مخيم تخطيط رؤية 2035 بدار الفياضة"
-                    className="w-full bg-gray-50 dark:bg-[#131914] border border-gray-100 dark:border-emerald-950/60 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white"
+                    className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-100 dark:border-red-950/20 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white"
                   />
                 </div>
 
@@ -1732,7 +1733,7 @@ export function ActivityPlannerScreen() {
                     <select
                       value={newSection}
                       onChange={(e) => setNewSection(e.target.value)}
-                      className="w-full bg-gray-50 dark:bg-[#131914] border border-gray-100 dark:border-emerald-950/60 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-bold"
+                      className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-100 dark:border-red-950/20 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-bold"
                     >
                       {ADD_SECTIONS.map(sec => (
                         <option key={sec} value={sec}>{sec}</option>
@@ -1747,7 +1748,7 @@ export function ActivityPlannerScreen() {
                       required
                       value={newDate}
                       onChange={(e) => setNewDate(e.target.value)}
-                      className="w-full bg-gray-50 dark:bg-[#131914] border border-gray-100 dark:border-emerald-950/60 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-bold"
+                      className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-100 dark:border-red-950/20 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-bold"
                     />
                   </div>
                 </div>
@@ -1761,7 +1762,7 @@ export function ActivityPlannerScreen() {
                       value={newDuration}
                       onChange={(e) => setNewDuration(e.target.value)}
                       placeholder="مثال: 5 ساعات / يوم كامل"
-                      className="w-full bg-gray-50 dark:bg-[#131914] border border-gray-100 dark:border-emerald-950/60 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white"
+                      className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-100 dark:border-red-950/20 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white"
                     />
                   </div>
 
@@ -1770,7 +1771,7 @@ export function ActivityPlannerScreen() {
                     <select
                       value={newGoal}
                       onChange={(e) => setNewGoal(e.target.value)}
-                      className="w-full bg-gray-50 dark:bg-[#131914] border border-gray-100 dark:border-emerald-950/60 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-bold"
+                      className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-100 dark:border-red-950/20 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-bold"
                     >
                       {ADD_GOALS.map(g => (
                         <option key={g} value={g}>{g}</option>
@@ -1787,7 +1788,7 @@ export function ActivityPlannerScreen() {
                     onChange={(e) => setNewDescription(e.target.value)}
                     placeholder="اكتب بالتفصيل إرشادات العمل ومخطط السير الميداني..."
                     rows={3.5}
-                    className="w-full bg-gray-50 dark:bg-[#131914] border border-gray-100 dark:border-emerald-950/60 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white whitespace-pre-line"
+                    className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-100 dark:border-red-950/20 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white whitespace-pre-line"
                   />
                 </div>
 
@@ -1798,15 +1799,15 @@ export function ActivityPlannerScreen() {
                     value={newMaterials}
                     onChange={(e) => setNewMaterials(e.target.value)}
                     placeholder="مثال: أقمشة، حبال سيزال، خرائط طبوغرافية، خيم استكشاف"
-                    className="w-full bg-gray-50 dark:bg-[#131914] border border-gray-100 dark:border-emerald-950/60 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white"
+                    className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-100 dark:border-red-950/20 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white"
                   />
                 </div>
 
-                <div className="pt-4 border-t border-gray-50 dark:border-emerald-950 flex justify-end gap-2 text-xs font-semibold">
+                <div className="pt-4 border-t border-gray-50 dark:border-red-950/20 flex justify-end gap-2 text-xs font-semibold">
                   <button
                     type="button"
                     onClick={() => setShowAddActivityModal(false)}
-                    className="bg-gray-100 dark:bg-[#202921] px-4 py-2.5 rounded-xl font-bold"
+                    className="bg-gray-100 dark:bg-[#201012] px-4 py-2.5 rounded-xl font-bold"
                   >
                     تراجع وإلغاء
                   </button>
@@ -1831,22 +1832,22 @@ export function ActivityPlannerScreen() {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-white dark:bg-[#161a16] border border-gray-100 dark:border-emerald-900/30 rounded-3xl p-6 md:p-8 max-w-md w-full text-right shadow-2xl relative space-y-4"
+              className="bg-white dark:bg-[#150e0f] border border-gray-100 dark:border-red-950/20 rounded-3xl p-6 md:p-8 max-w-md w-full text-right shadow-2xl relative space-y-4"
             >
-              <div className="flex justify-between items-center border-b border-gray-50 dark:border-emerald-950 pb-3">
+              <div className="flex justify-between items-center border-b border-gray-50 dark:border-red-950/20 pb-3">
                 <div className="flex items-center gap-1.5 text-red-600">
                   <Bell className="w-5 h-5" />
                   <h3 className="font-extrabold text-sm text-text-primary dark:text-white">جدولة تذكير محلي بالمنصة</h3>
                 </div>
                 <button
                   onClick={() => setReminderModalActivity(null)}
-                  className="bg-gray-100 dark:bg-[#202921] text-text-secondary dark:text-gray-300 font-bold px-3 py-1 rounded-full text-[10px]"
+                  className="bg-gray-100 dark:bg-[#201012] text-text-secondary dark:text-gray-300 font-bold px-3 py-1 rounded-full text-[10px]"
                 >
                   إغلاق
                 </button>
               </div>
 
-              <div className="space-y-1.5 bg-gray-50 dark:bg-[#131914] p-3 rounded-2xl border border-gray-100 dark:border-emerald-950 text-xs">
+              <div className="space-y-1.5 bg-gray-50 dark:bg-[#150e0f] p-3 rounded-2xl border border-gray-100 dark:border-red-950/20 text-xs">
                 <span className="text-xs text-text-secondary dark:text-gray-400 font-bold">النشاط المستهدف بالمنبه:</span>
                 <p className="font-black text-xs text-text-primary dark:text-white mt-0.5 leading-snug">{reminderModalActivity.title}</p>
               </div>
@@ -1860,7 +1861,7 @@ export function ActivityPlannerScreen() {
                       required
                       value={reminderDate}
                       onChange={(e) => setReminderDate(e.target.value)}
-                      className="w-full bg-gray-50 dark:bg-[#131914] border border-gray-100 dark:border-emerald-950/60 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-bold"
+                      className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-100 dark:border-red-950/20 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-bold"
                     />
                   </div>
 
@@ -1871,7 +1872,7 @@ export function ActivityPlannerScreen() {
                       required
                       value={reminderTime}
                       onChange={(e) => setReminderTime(e.target.value)}
-                      className="w-full bg-gray-50 dark:bg-[#131914] border border-gray-100 dark:border-emerald-950/60 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-bold font-mono"
+                      className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-100 dark:border-red-950/20 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-bold font-mono"
                     />
                   </div>
                 </div>
@@ -1881,7 +1882,7 @@ export function ActivityPlannerScreen() {
                   <select
                     value={reminderAlertType}
                     onChange={(e: any) => setReminderAlertType(e.target.value)}
-                    className="w-full bg-gray-50 dark:bg-[#131914] border border-gray-100 dark:border-emerald-950/60 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-bold"
+                    className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-100 dark:border-red-950/20 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-bold"
                   >
                     <option value="in_app">إشعار تفاعلي مخصص بداخل التطبيق (موصى به)</option>
                     <option value="browser">إشعار المتصفح والنظام المباشر (PWA/Push)</option>
@@ -1896,15 +1897,15 @@ export function ActivityPlannerScreen() {
                     onChange={(e) => setReminderNote(e.target.value)}
                     placeholder="مثال: لا تنسى جلب طبوع الفوج ومعجم العقد الكشفية اليدوية..."
                     rows={2.5}
-                    className="w-full bg-gray-50 dark:bg-[#131914] border border-gray-100 dark:border-emerald-950/60 rounded-xl px-3 py-2 text-xs text-text-primary dark:text-white"
+                    className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-100 dark:border-red-950/20 rounded-xl px-3 py-2 text-xs text-text-primary dark:text-white"
                   />
                 </div>
 
-                <div className="pt-4 border-t border-gray-50 dark:border-emerald-950 flex justify-end gap-2 text-xs font-semibold">
+                <div className="pt-4 border-t border-gray-50 dark:border-red-950/20 flex justify-end gap-2 text-xs font-semibold">
                   <button
                     type="button"
                     onClick={() => setReminderModalActivity(null)}
-                    className="bg-gray-100 dark:bg-[#202921] px-4 py-2.5 rounded-xl font-bold"
+                    className="bg-gray-100 dark:bg-[#201012] px-4 py-2.5 rounded-xl font-bold"
                   >
                     إلغاء التراجع
                   </button>
@@ -1929,7 +1930,7 @@ export function ActivityPlannerScreen() {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-gray-100 dark:bg-[#121612] w-full h-full md:h-[90vh] md:max-w-6xl md:rounded-3xl shadow-2xl flex flex-col overflow-hidden text-right"
+              className="bg-gray-100 dark:bg-[#110708] w-full h-full md:h-[90vh] md:max-w-6xl md:rounded-3xl shadow-2xl flex flex-col overflow-hidden text-right"
             >
               {/* STYLE TAG FOR CUSTOM PRINT MEDIA QUERY RULES */}
               <style dangerouslySetInnerHTML={{ __html: `
@@ -1974,8 +1975,8 @@ export function ActivityPlannerScreen() {
               ` }} />
 
               {/* MODAL HEADER */}
-              <div className="bg-white dark:bg-[#161a16] border-b border-gray-200 dark:border-emerald-950 px-6 py-4 flex items-center justify-between no-print shrink-0">
-                <div className="flex items-center gap-2.5 text-emerald-600">
+              <div className="bg-white dark:bg-[#110708] border-b border-gray-200 dark:border-red-950/30 px-6 py-4 flex items-center justify-between no-print shrink-0">
+                <div className="flex items-center gap-2.5 text-primary">
                   <Printer className="w-6 h-6 animate-pulse" />
                   <div>
                     <h3 className="font-extrabold text-base text-text-primary dark:text-white">مركز طباعة وتصدير التقارير الكشفية المعتمدة</h3>
@@ -1984,7 +1985,7 @@ export function ActivityPlannerScreen() {
                 </div>
                 <button
                   onClick={() => setShowPrintModal(false)}
-                  className="bg-gray-100 hover:bg-gray-200 dark:bg-[#202921] dark:hover:bg-emerald-950 text-text-secondary dark:text-gray-300 font-extrabold px-4 py-2 rounded-xl text-xs transition-colors"
+                  className="bg-gray-100 hover:bg-gray-200 dark:bg-[#150e0f] dark:hover:bg-red-950 text-text-secondary dark:text-gray-300 font-extrabold px-4 py-2 rounded-xl text-xs transition-colors"
                 >
                   إغلاق المركز
                 </button>
@@ -1994,7 +1995,7 @@ export function ActivityPlannerScreen() {
               <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
                 
                 {/* LEFT PANEL: CONFIGURATION (no-print) */}
-                <div className="w-full md:w-[35%] bg-white dark:bg-[#141814] border-l border-gray-200 dark:border-emerald-950 p-6 overflow-y-auto no-print space-y-5 text-xs font-bold text-text-secondary dark:text-gray-300">
+                <div className="w-full md:w-[35%] bg-white dark:bg-[#110708] border-l border-gray-200 dark:border-red-950/30 p-6 overflow-y-auto no-print space-y-5 text-xs font-bold text-text-secondary dark:text-gray-300">
                   <div className="bg-red-50/50 dark:bg-red-950/20 p-3 rounded-2xl border border-red-100 dark:border-red-950/40">
                     <span className="text-xs text-red-700 dark:text-red-400 font-black block mb-1">💡 معيار الهوية المعتمد:</span>
                     <p className="text-[11px] leading-relaxed font-semibold text-red-600 dark:text-red-300/90">
@@ -2009,7 +2010,7 @@ export function ActivityPlannerScreen() {
                       type="text"
                       value={printTitle}
                       onChange={(e) => setPrintTitle(e.target.value)}
-                      className="w-full bg-gray-50 dark:bg-[#101410] border border-gray-200 dark:border-emerald-950 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-semibold"
+                      className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-200 dark:border-red-950/20 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-semibold"
                       placeholder="عنوان التقرير..."
                     />
                   </div>
@@ -2022,7 +2023,7 @@ export function ActivityPlannerScreen() {
                         type="text"
                         value={scoutGroup}
                         onChange={(e) => setScoutGroup(e.target.value)}
-                        className="w-full bg-gray-50 dark:bg-[#101410] border border-gray-200 dark:border-emerald-950 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-semibold"
+                        className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-200 dark:border-red-950/20 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-semibold"
                       />
                     </div>
                     <div className="space-y-1.5">
@@ -2031,7 +2032,7 @@ export function ActivityPlannerScreen() {
                         type="text"
                         value={scoutRegion}
                         onChange={(e) => setScoutRegion(e.target.value)}
-                        className="w-full bg-gray-50 dark:bg-[#101410] border border-gray-200 dark:border-emerald-950 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-semibold"
+                        className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-200 dark:border-red-950/20 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-semibold"
                       />
                     </div>
                   </div>
@@ -2043,7 +2044,7 @@ export function ActivityPlannerScreen() {
                         type="text"
                         value={scoutLeader}
                         onChange={(e) => setScoutLeader(e.target.value)}
-                        className="w-full bg-gray-50 dark:bg-[#101410] border border-gray-200 dark:border-emerald-950 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-semibold"
+                        className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-200 dark:border-red-950/20 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-semibold"
                       />
                     </div>
                     <div className="space-y-1.5">
@@ -2052,7 +2053,7 @@ export function ActivityPlannerScreen() {
                         type="text"
                         value={scoutSeason}
                         onChange={(e) => setScoutSeason(e.target.value)}
-                        className="w-full bg-gray-50 dark:bg-[#101410] border border-gray-200 dark:border-emerald-950 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-semibold"
+                        className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-200 dark:border-red-950/20 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-semibold"
                       />
                     </div>
                   </div>
@@ -2063,7 +2064,7 @@ export function ActivityPlannerScreen() {
                     <select
                       value={printSectionFilter}
                       onChange={(e) => setPrintSectionFilter(e.target.value)}
-                      className="w-full bg-gray-50 dark:bg-[#101410] border border-gray-200 dark:border-emerald-950 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-bold"
+                      className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-200 dark:border-red-950/20 rounded-xl px-3 py-2.5 text-xs text-text-primary dark:text-white font-bold"
                     >
                       {SECTIONS.map(sec => (
                         <option key={sec} value={sec}>{sec === 'الكل' ? 'عرض كافة الفروع والأقسام كلياً' : sec}</option>
@@ -2072,7 +2073,7 @@ export function ActivityPlannerScreen() {
                   </div>
 
                   {/* Checkboxes layout styling */}
-                  <div className="space-y-3 bg-gray-50 dark:bg-[#101410] p-4 rounded-2xl border border-gray-100 dark:border-emerald-950/60">
+                  <div className="space-y-3 bg-gray-50 dark:bg-[#150e0f] p-4 rounded-2xl border border-gray-100 dark:border-red-950/20">
                     <span className="text-text-primary dark:text-white font-extrabold block mb-1">خيارات عرض المكونات بالورقة:</span>
                     
                     <label className="flex items-center gap-2 cursor-pointer text-text-primary dark:text-white font-bold">
@@ -2080,7 +2081,7 @@ export function ActivityPlannerScreen() {
                         type="checkbox"
                         checked={includeMaterials}
                         onChange={(e) => setIncludeMaterials(e.target.checked)}
-                        className="rounded border-gray-300 dark:border-emerald-950 text-emerald-600 focus:ring-emerald-500 w-4 h-4"
+                        className="rounded border-gray-300 dark:border-red-950 text-primary focus:ring-primary w-4 h-4"
                       />
                       <span>تضمين الأدوات والمستلزمات بكل نشاط</span>
                     </label>
@@ -2090,7 +2091,7 @@ export function ActivityPlannerScreen() {
                         type="checkbox"
                         checked={includeReminders}
                         onChange={(e) => setIncludeReminders(e.target.checked)}
-                        className="rounded border-gray-300 dark:border-emerald-950 text-emerald-600 focus:ring-emerald-500 w-4 h-4"
+                        className="rounded border-gray-300 dark:border-red-950 text-primary focus:ring-primary w-4 h-4"
                       />
                       <span>تضمين التذكيرات الموقوتة بالتقرير</span>
                     </label>
@@ -2100,7 +2101,7 @@ export function ActivityPlannerScreen() {
                         type="checkbox"
                         checked={includeSignatures}
                         onChange={(e) => setIncludeSignatures(e.target.checked)}
-                        className="rounded border-gray-300 dark:border-emerald-950 text-emerald-600 focus:ring-emerald-500 w-4 h-4"
+                        className="rounded border-gray-300 dark:border-red-950 text-primary focus:ring-primary w-4 h-4"
                       />
                       <span>تضمين تواقيع الاعتمادات (قائد الوحدة / الفوج)</span>
                     </label>
@@ -2110,25 +2111,25 @@ export function ActivityPlannerScreen() {
                   <div className="space-y-3.5">
                     <div className="flex items-center justify-between">
                       <span className="text-text-primary dark:text-white font-extrabold">توجيهات القيادة الخاصة بالأنشطة (تظهر بالطباعة):</span>
-                      <span className="bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded-full text-[9px] font-black">ديناميكي</span>
+                      <span className="bg-red-100 dark:bg-red-950/30 text-primary dark:text-red-300 px-2 py-0.5 rounded-full text-[9px] font-black">ديناميكي</span>
                     </div>
 
                     {activities.filter(act => printSectionFilter === 'الكل' || act.section === printSectionFilter).length === 0 ? (
                       <p className="text-[11px] text-gray-400 italic">لا توجد أنشطة بالقسم الحالي لكتابة ملاحظات عليها.</p>
                     ) : (
-                      <div className="max-h-56 overflow-y-auto space-y-3 pr-1 border-r border-dashed border-gray-100 dark:border-emerald-950">
+                      <div className="max-h-56 overflow-y-auto space-y-3 pr-1 border-r border-dashed border-gray-100 dark:border-red-950/20">
                         {activities
                           .filter(act => printSectionFilter === 'الكل' || act.section === printSectionFilter)
                           .sort((a, b) => a.date.localeCompare(b.date))
                           .map(act => (
-                            <div key={act.id} className="space-y-1 bg-gray-50/50 dark:bg-[#101410] p-2.5 rounded-xl border border-gray-100 dark:border-emerald-950/40">
+                            <div key={act.id} className="space-y-1 bg-gray-50/50 dark:bg-[#150e0f] p-2.5 rounded-xl border border-gray-100 dark:border-red-950/20">
                               <span className="font-extrabold text-text-primary dark:text-white text-[11px] block truncate">{act.title}</span>
                               <textarea
                                 value={printNotes[act.id] || ''}
                                 onChange={(e) => handleSavePrintNote(act.id, e.target.value)}
                                 placeholder="أضف ملاحظات التنفيذ، الحضور، أو شروط الأمان لهذا النشاط..."
                                 rows={2}
-                                className="w-full bg-white dark:bg-[#161a16] border border-gray-200 dark:border-emerald-950/80 rounded-lg p-1.5 text-[10px] text-text-primary dark:text-white font-semibold focus:outline-none"
+                                className="w-full bg-white dark:bg-[#150e0f] border border-gray-200 dark:border-red-950/20 rounded-lg p-1.5 text-[10px] text-text-primary dark:text-white font-semibold focus:outline-none"
                               />
                             </div>
                           ))}
@@ -2137,22 +2138,22 @@ export function ActivityPlannerScreen() {
                   </div>
 
                   {/* Print trigger button inside Configuration panel */}
-                  <div className="pt-4 border-t border-gray-100 dark:border-emerald-950 flex flex-col gap-2">
+                  <div className="pt-4 border-t border-gray-100 dark:border-red-950/20 flex flex-col gap-2">
                     <button
                       onClick={() => window.print()}
-                      className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs py-3 px-5 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/10 transition-colors"
+                      className="w-full bg-primary hover:bg-primary-light text-white font-black text-xs py-3 px-5 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-primary/10 transition-colors"
                     >
                       <Printer className="w-4.5 h-4.5" />
                       <span>إرسال لملف PDF / طابعة النظام</span>
                     </button>
                     <p className="text-[10px] text-center text-text-secondary dark:text-gray-400 font-medium">
-                      سيقوم المتصفح بفتح شاشة الطباعة الافتراضية. اختر <span className="font-bold text-emerald-600 dark:text-emerald-400">"حفظ كـ PDF" (Save as PDF)</span> لحفظه كملف رقمي.
+                      سيقوم المتصفح بفتح شاشة الطباعة الافتراضية. اختر <span className="font-bold text-primary dark:text-primary-light">"حفظ كـ PDF" (Save as PDF)</span> لحفظه كملف رقمي.
                     </p>
                   </div>
                 </div>
 
                 {/* RIGHT PANEL: LIVE DOCUMENT PREVIEW (Styled as actual A4 sheet) */}
-                <div className="flex-1 bg-gray-200/50 dark:bg-[#0c0f0c] p-4 md:p-8 overflow-y-auto flex justify-center">
+                <div className="flex-1 bg-gray-200/50 dark:bg-[#120809] p-4 md:p-8 overflow-y-auto flex justify-center">
                   
                   {/* PRINTABLE CONTAINER (This will be the ONLY visible thing during print) */}
                   <div
@@ -2195,14 +2196,14 @@ export function ActivityPlannerScreen() {
                         <p>تاريخ التصدير: <span className="underline">{new Date().toLocaleDateString('ar-TN', { year: 'numeric', month: 'long', day: 'numeric' })}</span></p>
                         <p>المسؤول: <span className="underline">{scoutLeader || 'القائد العام'}</span></p>
                         <p>الموسم: <span className="underline">{scoutSeason || '2025 - 2026'}</span></p>
-                        <p className="text-[10px] text-emerald-700 font-extrabold font-sans">المنظمة العالمية للحركة الكشفية (WOSM)</p>
+                        <p className="text-[10px] text-primary font-extrabold font-sans">المنظمة العالمية للحركة الكشفية (WOSM)</p>
                       </div>
                     </div>
 
                     {/* MAIN DOCUMENT TITLE */}
                     <div className="text-center py-4 bg-red-50 rounded-2xl border border-red-100 relative z-10 print-card">
                       <h2 className="text-lg md:text-xl font-extrabold text-red-800 tracking-tight leading-snug">{printTitle}</h2>
-                      <p className="text-xs text-emerald-800 font-black mt-1">
+                      <p className="text-xs text-primary font-black mt-1">
                         القسم والمستهدف البصري للطباعة: {printSectionFilter === 'الكل' ? 'كافة الفروع والوحدات الكشفية المندمجة' : `قسم ${printSectionFilter}`}
                       </p>
                     </div>
@@ -2225,7 +2226,7 @@ export function ActivityPlannerScreen() {
                       </div>
                       <div className="border-r border-gray-200">
                         <span className="text-gray-500 font-bold block mb-0.5">الرتبة والاعتماد</span>
-                        <span className="text-xs font-black text-emerald-700">مخطط تربوي رسمي</span>
+                        <span className="text-xs font-black text-primary">مخطط تربوي رسمي</span>
                       </div>
                     </div>
 
@@ -2255,7 +2256,7 @@ export function ActivityPlannerScreen() {
                                   {/* Activity top banner */}
                                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2.5 border-b border-gray-100">
                                     <div className="flex items-center gap-2">
-                                      <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs flex items-center justify-center">
+                                      <span className="w-6 h-6 rounded-full bg-red-100 text-red-800 font-bold text-xs flex items-center justify-center">
                                         {index + 1}
                                       </span>
                                       <h4 className="font-extrabold text-sm text-gray-950">{act.title}</h4>
@@ -2267,7 +2268,7 @@ export function ActivityPlannerScreen() {
                                       <span className="bg-gray-100 text-gray-700 px-2.5 py-1 rounded-md">
                                         ⏱️ {act.duration}
                                       </span>
-                                      <span className="bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-md border border-emerald-100/30">
+                                      <span className="bg-red-50 text-red-700 px-2.5 py-1 rounded-md border border-red-100/50">
                                         📅 {formatArabicFriendlyDate(act.date)}
                                       </span>
                                     </div>
@@ -2296,9 +2297,9 @@ export function ActivityPlannerScreen() {
 
                                   {/* Conditional Leadership Custom Print Note */}
                                   {customNote && (
-                                    <div className="bg-emerald-50/40 p-3 rounded-xl border border-emerald-100 text-xs text-emerald-900 font-semibold leading-relaxed">
-                                      <span className="font-extrabold text-emerald-800 text-[11px] block mb-1 font-sans">✍️ توجيهات وتقديرات القيادة المباشرة للفوج:</span>
-                                      <p className="text-[11px] font-medium text-emerald-800 whitespace-pre-line">{customNote}</p>
+                                    <div className="bg-red-50/40 p-3 rounded-xl border border-red-100 text-xs text-red-900 font-semibold leading-relaxed">
+                                      <span className="font-extrabold text-red-800 text-[11px] block mb-1 font-sans">✍️ توجيهات وتقديرات القيادة المباشرة للفوج:</span>
+                                      <p className="text-[11px] font-medium text-red-800 whitespace-pre-line">{customNote}</p>
                                     </div>
                                   )}
                                 </div>
@@ -2322,7 +2323,7 @@ export function ActivityPlannerScreen() {
                               <p className="text-[11px] text-gray-500">
                                 📅 {formatArabicFriendlyDate(rem.reminderDate)} | ⏱️ {rem.reminderTime} | 🔔 {rem.alertType === 'in_app' ? 'إشعار بالمنصة' : rem.alertType === 'browser' ? 'إشعار النظام' : 'كلاهما'}
                               </p>
-                              {rem.note && <p className="text-[10px] text-emerald-800 italic font-medium">ملاحظة التنبيه: {rem.note}</p>}
+                              {rem.note && <p className="text-[10px] text-red-800 italic font-medium">ملاحظة التنبيه: {rem.note}</p>}
                             </div>
                           ))}
                         </div>
@@ -2354,18 +2355,18 @@ export function ActivityPlannerScreen() {
               </div>
 
               {/* MODAL BOTTOM BAR */}
-              <div className="bg-white dark:bg-[#161a16] border-t border-gray-200 dark:border-emerald-950 px-6 py-4 flex items-center justify-end gap-3 no-print shrink-0">
+              <div className="bg-white dark:bg-[#110708] border-t border-gray-200 dark:border-red-950/30 px-6 py-4 flex items-center justify-end gap-3 no-print shrink-0">
                 <button
                   type="button"
                   onClick={() => setShowPrintModal(false)}
-                  className="bg-gray-100 hover:bg-gray-200 dark:bg-[#202921] dark:hover:bg-emerald-950 text-text-secondary dark:text-gray-300 font-extrabold px-5 py-2.5 rounded-xl text-xs transition-colors"
+                  className="bg-gray-100 hover:bg-gray-200 dark:bg-[#150e0f] dark:hover:bg-red-950 text-text-secondary dark:text-gray-300 font-extrabold px-5 py-2.5 rounded-xl text-xs transition-colors"
                 >
                   إلغاء وتراجع
                 </button>
                 <button
                   type="button"
                   onClick={() => window.print()}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs px-6 py-2.5 rounded-xl flex items-center gap-2 shadow-lg shadow-emerald-600/10 transition-colors"
+                  className="bg-primary hover:bg-primary-light text-white font-extrabold text-xs px-6 py-2.5 rounded-xl flex items-center gap-2 shadow-lg shadow-primary/10 transition-colors"
                 >
                   <Printer className="w-4.5 h-4.5" />
                   <span>بدء الطباعة وتصدير التقرير</span>

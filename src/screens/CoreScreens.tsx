@@ -29,7 +29,11 @@ import {
   MessageSquareCode,
   Globe2,
   BookmarkCheck,
-  CheckCircle2
+  CheckCircle2,
+  UserPlus,
+  UserCheck,
+  History,
+  ClipboardList
 } from 'lucide-react';
 import { 
   SCOUTS_NEWS, 
@@ -67,12 +71,12 @@ export function HomeScreen({ onNavigate, favorites, toggleFavorite }: HomeScreen
     { label: 'بريد تدريبي منجز', value: '557', suffix: 'دورة', sub: '495 أساسية + 62 متخصصة', icon: Award, color: 'text-primary' },
     { label: 'ولايات مشمولة فاعلة', value: '15', suffix: 'جهة', sub: 'تغطية مستمرة للأفواج', icon: MapPin, color: 'text-secondary' },
     { label: 'تربية وتنمية مجتمعية', value: '57.1%', suffix: 'حصة', sub: 'تركيز على أثر المتطوعين', icon: TrendingUp, color: 'text-accent' },
-    { label: 'نشاطات وهيكلة', value: '11/42', suffix: 'لقاء', sub: '11 اجتماعاً + 42 خرجة', icon: Users, color: 'text-emerald-600' }
+    { label: 'نشاطات وهيكلة', value: '11/42', suffix: 'لقاء', sub: '11 اجتماعاً + 42 خرجة', icon: Users, color: 'text-primary' }
   ];
 
   // Quick action links
   const quickActions = [
-    { id: 'education', title: 'الشروط الدراسية', desc: '12 خطة لتولّي قيادة الهياكل والوحدات', icon: BookOpen, color: 'from-emerald-800 to-emerald-600' },
+    { id: 'education', title: 'الشروط الدراسية', desc: '12 خطة لتولّي قيادة الهياكل والوحدات', icon: BookOpen, color: 'from-red-800 to-red-600' },
     { id: 'curriculum', title: 'المناهج والأقسام', desc: 'مقررات التنشيط للأشبال، الفتيان والجوالة', icon: Compass, color: 'from-amber-600 to-amber-500' },
     { id: 'calculator', title: 'حاسبة فرص الترشح', desc: 'احسب نقاط تأهيلك للمشاريع والخطوط', icon: Calculator, color: 'from-secondary to-orange-500' },
     { id: 'forms', title: 'نماذج وتعبئة الطلبات', desc: '5 استمارات رسمية جاهزة للتحميل والطباعة', icon: FileText, color: 'from-teal-700 to-teal-500' },
@@ -118,7 +122,7 @@ export function HomeScreen({ onNavigate, favorites, toggleFavorite }: HomeScreen
       </AnimatePresence>
 
       {/* Hero Header with Scouts Geometric Pattern */}
-      <div className="relative bg-gradient-to-br from-primary via-primary to-emerald-950 text-white rounded-3xl p-8 md:p-12 overflow-hidden shadow-xl shadow-primary/10">
+      <div className="relative bg-gradient-to-br from-primary via-primary to-red-950 text-white rounded-3xl p-8 md:p-12 overflow-hidden shadow-xl shadow-primary/10">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
         <div className="absolute -left-16 -top-16 w-64 h-64 bg-secondary/30 rounded-full blur-3xl"></div>
         <div className="absolute -right-16 -bottom-16 w-80 h-80 bg-accent/20 rounded-full blur-3xl"></div>
@@ -163,7 +167,7 @@ export function HomeScreen({ onNavigate, favorites, toggleFavorite }: HomeScreen
           </button>
         </div>
 
-        <div className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 rounded-2xl p-6 shadow-sm relative overflow-hidden">
+        <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 rounded-2xl p-6 shadow-sm relative overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeNewsIndex}
@@ -219,7 +223,7 @@ export function HomeScreen({ onNavigate, favorites, toggleFavorite }: HomeScreen
                 key={action.id}
                 whileHover={{ y: -6, scale: 1.02 }}
                 onClick={() => onNavigate(action.id)}
-                className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 rounded-2xl p-5 shadow-sm text-right cursor-pointer hover:shadow-md transition-all group flex flex-col justify-between"
+                className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 rounded-2xl p-5 shadow-sm text-right cursor-pointer hover:shadow-md transition-all group flex flex-col justify-between"
               >
                 <div className="space-y-3">
                   <div className={`w-12 h-12 rounded-xl bg-gradient-to-tr ${action.color} flex items-center justify-center text-white shadow-md shadow-black/5 group-hover:scale-105 transition-transform`}>
@@ -243,7 +247,7 @@ export function HomeScreen({ onNavigate, favorites, toggleFavorite }: HomeScreen
       </div>
 
       {/* Interactive Official Report Stats Section (Bento layout) */}
-      <div className="bg-gradient-to-tr from-emerald-50 to-emerald-100/50 dark:from-emerald-950/20 dark:to-[#172219] border border-emerald-100 dark:border-emerald-900/30 rounded-3xl p-6 md:p-8 space-y-6">
+      <div className="bg-gradient-to-tr from-red-50 to-red-100/50 dark:from-red-950/20 dark:to-[#1a0e10] border border-red-100 dark:border-red-900/30 rounded-3xl p-6 md:p-8 space-y-6">
         <div className="max-w-2xl text-right">
           <h2 className="text-2xl font-extrabold text-primary dark:text-primary-light">مؤشرات الأداء والحصاد الكشفي (2025-2026)</h2>
           <p className="text-sm text-text-secondary dark:text-gray-300 mt-2">
@@ -257,7 +261,7 @@ export function HomeScreen({ onNavigate, favorites, toggleFavorite }: HomeScreen
             return (
               <div 
                 key={idx}
-                className="bg-white dark:bg-[#18201a] border border-emerald-100/40 dark:border-emerald-900/30 p-5 rounded-2xl flex flex-col justify-between space-y-3 relative group overflow-hidden"
+                className="bg-white dark:bg-[#110708] border border-red-100/40 dark:border-red-900/30 p-5 rounded-2xl flex flex-col justify-between space-y-3 relative group overflow-hidden"
               >
                 <div className="absolute right-0 top-0 w-2 h-full bg-primary/20"></div>
                 <div className="flex items-center justify-between">
@@ -280,7 +284,7 @@ export function HomeScreen({ onNavigate, favorites, toggleFavorite }: HomeScreen
 
         {/* Global Strategy Highlights (News Items Cards) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-          <div className="bg-white/80 dark:bg-emerald-900/10 backdrop-blur-sm p-5 rounded-2xl border border-emerald-100/50 dark:border-emerald-900/30 flex gap-4">
+          <div className="bg-white/80 dark:bg-red-900/10 backdrop-blur-sm p-5 rounded-2xl border border-red-100/50 dark:border-red-900/30 flex gap-4">
             <div className="w-10 h-10 rounded-lg bg-orange-100 dark:bg-orange-950/50 flex items-center justify-center shrink-0">
               <Building2 className="w-5 h-5 text-secondary" />
             </div>
@@ -292,7 +296,7 @@ export function HomeScreen({ onNavigate, favorites, toggleFavorite }: HomeScreen
             </div>
           </div>
 
-          <div className="bg-white/80 dark:bg-emerald-900/10 backdrop-blur-sm p-5 rounded-2xl border border-emerald-100/50 dark:border-emerald-900/30 flex gap-4">
+          <div className="bg-white/80 dark:bg-red-900/10 backdrop-blur-sm p-5 rounded-2xl border border-red-100/50 dark:border-red-900/30 flex gap-4">
             <div className="w-10 h-10 rounded-lg bg-yellow-100 dark:bg-yellow-950/50 flex items-center justify-center shrink-0">
               <Globe2 className="w-5 h-5 text-accent" />
             </div>
@@ -307,10 +311,10 @@ export function HomeScreen({ onNavigate, favorites, toggleFavorite }: HomeScreen
       </div>
 
       {/* Official Scout Verification & Alignment Portal for 2026 */}
-      <div className="bg-white dark:bg-[#121813] border border-gray-100 dark:border-emerald-950 rounded-3xl p-6 md:p-8 space-y-6">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-50 dark:border-emerald-950 pb-4">
+      <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 rounded-3xl p-6 md:p-8 space-y-6">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-50 dark:border-red-950/20 pb-4">
           <div className="text-right">
-            <span className="inline-flex items-center gap-1.5 bg-emerald-50 dark:bg-emerald-950 text-primary dark:text-primary-light text-xs font-black px-3 py-1 rounded-full border border-emerald-100 dark:border-emerald-900/30">
+            <span className="inline-flex items-center gap-1.5 bg-red-50 dark:bg-red-950 text-primary dark:text-primary-light text-xs font-black px-3 py-1 rounded-full border border-red-100 dark:border-red-900/30">
               🛡️ تدقيق رسمي ومطابقة تامة لعام 2026
             </span>
             <h2 className="text-xl font-extrabold text-text-primary dark:text-white mt-2">بوابة التحقق ومطابقة مصادر المعلومات الكشفية</h2>
@@ -441,8 +445,8 @@ export function HomeScreen({ onNavigate, favorites, toggleFavorite }: HomeScreen
                 key={item.id}
                 className={`border rounded-2xl transition-all overflow-hidden text-right ${
                   isOpen 
-                    ? 'border-primary bg-emerald-50/20 dark:bg-emerald-950/10' 
-                    : 'border-gray-100 dark:border-emerald-950/40 bg-gray-50/30 dark:bg-[#131914]/40 hover:bg-gray-50 dark:hover:bg-[#131914]'
+                    ? 'border-primary bg-red-50/20 dark:bg-red-950/10' 
+                    : 'border-gray-100 dark:border-red-950/20 bg-gray-50/30 dark:bg-[#150e0f]/40 hover:bg-gray-50 dark:hover:bg-[#150e0f]'
                 }`}
               >
                 <button
@@ -467,7 +471,7 @@ export function HomeScreen({ onNavigate, favorites, toggleFavorite }: HomeScreen
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      className="border-t border-gray-100 dark:border-emerald-950/60 p-4 bg-white dark:bg-[#161d17] space-y-2 text-xs"
+                      className="border-t border-gray-100 dark:border-red-950/20 p-4 bg-white dark:bg-[#110708] space-y-2 text-xs"
                     >
                       <div className="flex items-center gap-1.5 text-orange-600 dark:text-orange-400 font-bold">
                         <span>• المصدر المرجعي:</span>
@@ -497,12 +501,13 @@ interface NewsScreenProps {
 }
 
 export function NewsScreen({ favorites, toggleFavorite }: NewsScreenProps) {
-  const [selectedCategory, setSelectedCategory] = useState<'all' | 'reports' | 'elections' | 'achievements' | 'projects'>('all');
+  const [selectedCategory, setSelectedCategory] = useState<'all' | 'medenine' | 'reports' | 'elections' | 'achievements' | 'projects'>('all');
   const [activeNewsDetail, setActiveNewsDetail] = useState<NewsItem | null>(null);
   const [shareSuccess, setShareSuccess] = useState(false);
 
   const categories = [
     { id: 'all', name: 'كل المستجدات' },
+    { id: 'medenine', name: 'جهة مدنين وأفواجها (جربة وميدون)' },
     { id: 'reports', name: 'التقارير والإحصائيات' },
     { id: 'elections', name: 'الانتخابات والتمثيل' },
     { id: 'achievements', name: 'الإنجازات والجودة' },
@@ -511,6 +516,7 @@ export function NewsScreen({ favorites, toggleFavorite }: NewsScreenProps) {
 
   const filteredNews = SCOUTS_NEWS.filter(news => {
     if (selectedCategory === 'all') return true;
+    if (selectedCategory === 'medenine') return news.id.startsWith('news_medenine');
     return news.category === selectedCategory;
   });
 
@@ -550,13 +556,75 @@ export function NewsScreen({ favorites, toggleFavorite }: NewsScreenProps) {
             className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-bold transition-all ${
               selectedCategory === cat.id 
                 ? 'bg-primary text-white shadow-sm shadow-primary/20' 
-                : 'bg-white dark:bg-[#1a201b] text-text-secondary dark:text-gray-300 border border-gray-100 dark:border-emerald-950 hover:bg-gray-50 dark:hover:bg-emerald-950/50'
+                : 'bg-white dark:bg-[#110708] text-text-secondary dark:text-gray-300 border border-gray-100 dark:border-red-950/20 hover:bg-gray-50 dark:hover:bg-red-950/30'
             }`}
           >
             {cat.name}
           </button>
         ))}
       </div>
+
+      {/* Local Médenine Guides & Manuals (Rover & Guides section "الجوالة والدليلات") */}
+      {selectedCategory === 'medenine' && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-gradient-to-br from-red-50 to-red-100/55 dark:from-red-950/20 dark:to-[#1a0e10] border border-red-100/80 dark:border-red-900/30 rounded-3xl p-6 md:p-8 space-y-5 text-right"
+        >
+          <div className="space-y-1">
+            <span className="bg-red-200/50 dark:bg-red-950 text-primary dark:text-primary-light text-[10px] font-black px-3 py-1 rounded-full border border-red-200 dark:border-red-900/25 inline-block">
+              📚 أدلة ومناهج جهة مدنين الرسمية 2026
+            </span>
+            <h2 className="text-lg md:text-xl font-extrabold text-text-primary dark:text-white mt-2">
+              منصة التوثيق والتأهيل لقسم الجوالة والدليلات بمدنين
+            </h2>
+            <p className="text-xs text-text-secondary dark:text-gray-400 leading-relaxed">
+              تجد هنا المناهج التوجيهية الرسمية لأفواج جهة مدنين (ميدون، جربة حومة السوق، جرجيس، بنقردان، ومدنين الشمالية والجنوبية) المصممة خصيصاً لتطوير عشائر الجوالة والدليلات.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+            {/* Guide 1 */}
+            <div className="bg-white dark:bg-[#110708] border border-red-100/40 dark:border-red-900/20 p-5 rounded-2xl space-y-3 shadow-xs">
+              <span className="text-[10px] bg-orange-100 text-orange-700 dark:bg-orange-950/40 dark:text-orange-400 font-extrabold px-2.5 py-1 rounded-md">
+                دليل الجوالة
+              </span>
+              <h3 className="font-extrabold text-sm text-text-primary dark:text-white">
+                منهج الريادة والخدمة العامة للجوالة
+              </h3>
+              <p className="text-[11px] text-text-secondary dark:text-gray-400 leading-relaxed font-semibold">
+                يركز الدليل على تدريب الجوال (18-23 سنة) على مشاريع التنمية المستدامة، والملاحة البرية، وتسيير الأزمات المحلية بالتعاون مع الحماية المدنية بمدنين.
+              </p>
+            </div>
+
+            {/* Guide 2 */}
+            <div className="bg-white dark:bg-[#110708] border border-red-100/40 dark:border-red-900/20 p-5 rounded-2xl space-y-3 shadow-xs">
+              <span className="text-[10px] bg-teal-100 text-teal-800 dark:bg-teal-950/40 dark:text-teal-400 font-extrabold px-2.5 py-1 rounded-md">
+                حقيبة الدليلات
+              </span>
+              <h3 className="font-extrabold text-sm text-text-primary dark:text-white">
+                حقيبة تمكين الدليلات والصحة المجتمعية
+              </h3>
+              <p className="text-[11px] text-text-secondary dark:text-gray-400 leading-relaxed font-semibold">
+                دليل مخصص لنشاطات الدليلات بجزيرة جربة وميدون، يشمل إدارة نوادي التوعية الصحية، المبادرات التضامنية، والتمكين القيادي للمرأة الكشفية التونسية.
+              </p>
+            </div>
+
+            {/* Guide 3 */}
+            <div className="bg-white dark:bg-[#110708] border border-red-100/40 dark:border-red-900/20 p-5 rounded-2xl space-y-3 shadow-xs">
+              <span className="text-[10px] bg-red-100 text-primary dark:bg-red-950/40 dark:text-red-400 font-extrabold px-2.5 py-1 rounded-md">
+                شروط الانخراط
+              </span>
+              <h3 className="font-extrabold text-sm text-text-primary dark:text-white">
+                معايير القبول ومشاريع نيل الشارات
+              </h3>
+              <p className="text-[11px] text-text-secondary dark:text-gray-400 leading-relaxed font-semibold">
+                شروط اعتماد مشاريع البحث الذاتي لعشائر الجوالة والدليلات بجهة مدنين، وتوثيق مشاركاتهم البيئية والتربوية لعام 2026 للحصول على وسام الغابة.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      )}
 
       {/* Structured News Items Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -565,10 +633,10 @@ export function NewsScreen({ favorites, toggleFavorite }: NewsScreenProps) {
             key={news.id}
             layoutId={`news-container-${news.id}`}
             whileHover={{ y: -4 }}
-            className={`bg-white dark:bg-[#1a201b] border ${
+            className={`bg-white dark:bg-[#110708] border ${
               news.isImportant 
                 ? 'border-orange-200 dark:border-orange-950/55 shadow-orange-50/50' 
-                : 'border-gray-100 dark:border-emerald-950'
+                : 'border-gray-100 dark:border-red-950/20'
             } rounded-3xl p-6 shadow-sm flex flex-col justify-between group cursor-pointer relative`}
           >
             {news.isImportant && (
@@ -593,7 +661,7 @@ export function NewsScreen({ favorites, toggleFavorite }: NewsScreenProps) {
               </p>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-gray-50 dark:border-emerald-950 flex items-center justify-between">
+            <div className="mt-6 pt-4 border-t border-gray-50 dark:border-red-950/20 flex items-center justify-between">
               <button
                 onClick={() => setActiveNewsDetail(news)}
                 className="text-primary dark:text-primary-light font-bold text-xs flex items-center gap-1 group-hover:underline"
@@ -647,7 +715,7 @@ export function NewsScreen({ favorites, toggleFavorite }: NewsScreenProps) {
               initial={{ scale: 0.95 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.95 }}
-              className="bg-white dark:bg-[#161a16] border border-gray-100 dark:border-emerald-900/30 rounded-3xl p-6 md:p-8 max-w-2xl w-full max-h-[85vh] overflow-y-auto space-y-6 text-right"
+              className="bg-white dark:bg-[#150e0f] border border-gray-100 dark:border-red-950/20 rounded-3xl p-6 md:p-8 max-w-2xl w-full max-h-[85vh] overflow-y-auto space-y-6 text-right"
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs text-text-secondary dark:text-gray-400">{activeNewsDetail.date}</span>
@@ -666,7 +734,7 @@ export function NewsScreen({ favorites, toggleFavorite }: NewsScreenProps) {
                 <p className="text-xs font-semibold text-primary dark:text-primary-light bg-primary/5 dark:bg-primary/25 rounded-md px-3 py-1.5 inline-block">
                   {activeNewsDetail.category === 'reports' ? 'التقرير المرحلي الرسمي' : 'أخبار تونسية عالمية'}
                 </p>
-                <div className="text-sm text-text-secondary dark:text-gray-300 leading-relaxed font-bold bg-gray-50 dark:bg-emerald-950/20 p-4 rounded-2xl border-r-2 border-primary">
+                <div className="text-sm text-text-secondary dark:text-gray-300 leading-relaxed font-bold bg-gray-50 dark:bg-red-950/25 p-4 rounded-2xl border-r-2 border-primary">
                   {activeNewsDetail.summary}
                 </div>
                 <div className="text-base text-text-primary dark:text-gray-100 leading-relaxed space-y-4 pt-2">
@@ -676,7 +744,7 @@ export function NewsScreen({ favorites, toggleFavorite }: NewsScreenProps) {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-6 border-t border-gray-100 dark:border-emerald-950">
+              <div className="flex items-center justify-between pt-6 border-t border-gray-100 dark:border-red-950/20">
                 <button
                   onClick={() => toggleFavorite(`news_${activeNewsDetail.id}`)}
                   className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold transition-all ${
@@ -765,12 +833,12 @@ export function ContactScreen() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Contact Info Section */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-6 rounded-3xl shadow-sm space-y-6">
+          <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-6 rounded-3xl shadow-sm space-y-6">
             <h3 className="text-lg font-bold text-text-primary dark:text-white">قنوات المراسلة المعتمدة</h3>
             
             <div className="space-y-5">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-primary dark:text-primary-light flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-red-50 dark:bg-red-950/40 text-primary dark:text-primary-light flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
@@ -826,9 +894,9 @@ export function ContactScreen() {
           </div>
 
           {/* Interactive Scaled Custom SVG Map Placeholder (Nice design touch) */}
-          <div className="bg-white dark:bg-[#1a201b] border border-emerald-100 dark:border-emerald-950 rounded-3xl p-5 shadow-sm space-y-4 text-center">
+          <div className="bg-white dark:bg-[#110708] border border-red-100 dark:border-red-950/20 rounded-3xl p-5 shadow-sm space-y-4 text-center">
             <h4 className="font-bold text-sm text-text-primary dark:text-white text-right">موقع المبيت ودار القيادة العامة بالخريطة التونسية</h4>
-            <div className="bg-emerald-50/50 dark:bg-[#151c16] h-48 rounded-2xl relative overflow-hidden border border-emerald-100/30 flex items-center justify-center">
+            <div className="bg-red-50/50 dark:bg-[#1c0e10] h-48 rounded-2xl relative overflow-hidden border border-red-100/30 flex items-center justify-center">
               {/* Fake styled minimal outline map */}
               <svg className="w-full h-full opacity-20 pointer-events-none absolute" viewBox="0 0 400 200">
                 <path d="M150 20 Q180 50, 190 80 T240 120 T280 160" stroke="#1B5E20" strokeWidth="4" fill="none" />
@@ -846,7 +914,7 @@ export function ContactScreen() {
 
         {/* Contact Form Section */}
         <div className="lg:col-span-7">
-          <form onSubmit={handleSubmit} className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-6 md:p-8 rounded-3xl shadow-sm space-y-5">
+          <form onSubmit={handleSubmit} className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-6 md:p-8 rounded-3xl shadow-sm space-y-5">
             <h3 className="text-lg font-bold text-text-primary dark:text-white">استمارة الاتصال الرقمي المباشر</h3>
             <p className="text-xs text-text-secondary dark:text-gray-400">يرجى تعبئة كافة الحقول بشكل صحيح وسنقوم بفرز طلبك لتوجيهه للقسم المعني بالكشافة التونسية.</p>
 
@@ -854,7 +922,7 @@ export function ContactScreen() {
               <motion.div 
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/40 p-4 rounded-2xl text-primary dark:text-primary-light flex items-start gap-3"
+                className="bg-red-50 dark:bg-red-950/30 border border-red-100 dark:border-red-900/40 p-4 rounded-2xl text-primary dark:text-primary-light flex items-start gap-3"
               >
                 <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" />
                 <div>
@@ -873,7 +941,7 @@ export function ContactScreen() {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="مثال: القائد علي بن مسعود"
-                  className={`w-full bg-gray-50 dark:bg-[#131914] border ${errors.name ? 'border-red-500' : 'border-gray-200 dark:border-emerald-950'} rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right`}
+                  className={`w-full bg-gray-50 dark:bg-[#150e0f] border ${errors.name ? 'border-red-500' : 'border-gray-200 dark:border-red-950/20'} rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right`}
                 />
                 {errors.name && <span className="text-[11px] text-red-500 font-semibold mt-1 block">{errors.name}</span>}
               </div>
@@ -887,7 +955,7 @@ export function ContactScreen() {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="مثال: 00216..."
-                    className={`w-full bg-gray-50 dark:bg-[#131914] border ${errors.phone ? 'border-red-500' : 'border-gray-200 dark:border-emerald-950'} rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right`}
+                    className={`w-full bg-gray-50 dark:bg-[#150e0f] border ${errors.phone ? 'border-red-500' : 'border-gray-200 dark:border-red-950/20'} rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right`}
                   />
                   {errors.phone && <span className="text-[11px] text-red-500 font-semibold mt-1 block">{errors.phone}</span>}
                 </div>
@@ -900,7 +968,7 @@ export function ContactScreen() {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="ali.scout@example.tn"
-                    className={`w-full bg-gray-50 dark:bg-[#131914] border ${errors.email ? 'border-red-500' : 'border-gray-200 dark:border-emerald-950'} rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right`}
+                    className={`w-full bg-gray-50 dark:bg-[#150e0f] border ${errors.email ? 'border-red-500' : 'border-gray-200 dark:border-red-950/20'} rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right`}
                   />
                   {errors.email && <span className="text-[11px] text-red-500 font-semibold mt-1 block">{errors.email}</span>}
                 </div>
@@ -914,7 +982,7 @@ export function ContactScreen() {
                   onChange={handleInputChange}
                   rows={5}
                   placeholder="اكتب استفسارك بخصوص المناهج، اللجان، أو إجازات الشارة الخشبية..."
-                  className={`w-full bg-gray-50 dark:bg-[#131914] border ${errors.message ? 'border-red-500' : 'border-gray-200 dark:border-emerald-950'} rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right`}
+                  className={`w-full bg-gray-50 dark:bg-[#150e0f] border ${errors.message ? 'border-red-500' : 'border-gray-200 dark:border-red-950/20'} rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right`}
                 />
                 {errors.message && <span className="text-[11px] text-red-500 font-semibold mt-1 block">{errors.message}</span>}
               </div>
@@ -975,8 +1043,8 @@ export function SettingsScreen({
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
         {/* Settings options */}
         <div className="md:col-span-7 space-y-6">
-          <div className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-6 rounded-3xl shadow-sm space-y-6">
-            <h3 className="text-lg font-bold text-text-primary dark:text-white pb-3 border-b border-gray-50 dark:border-emerald-950">إعدادات العرض والقراءة</h3>
+          <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-6 rounded-3xl shadow-sm space-y-6">
+            <h3 className="text-lg font-bold text-text-primary dark:text-white pb-3 border-b border-gray-50 dark:border-red-950/20">إعدادات العرض والقراءة</h3>
 
             {/* Dark Mode toggle */}
             <div className="flex items-center justify-between">
@@ -1002,7 +1070,7 @@ export function SettingsScreen({
                 <span className="font-bold text-sm text-text-primary dark:text-white block">حجم الخط الكشفي</span>
                 <span className="text-xs text-text-secondary dark:text-gray-400 mt-0.5 block">تحسين قراءة أدلة المترشحين</span>
               </div>
-              <div className="grid grid-cols-3 gap-2 pt-2 bg-gray-50 dark:bg-[#131914] p-1.5 rounded-xl border border-gray-100 dark:border-emerald-950/40">
+              <div className="grid grid-cols-3 gap-2 pt-2 bg-gray-50 dark:bg-[#150e0f] p-1.5 rounded-xl border border-gray-100 dark:border-red-950/20">
                 {(['normal', 'large', 'xlarge'] as const).map((size) => (
                   <button
                     key={size}
@@ -1038,7 +1106,7 @@ export function SettingsScreen({
             </div>
           </div>
 
-          <div className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-6 rounded-3xl shadow-sm space-y-4">
+          <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-6 rounded-3xl shadow-sm space-y-4">
             <h3 className="text-lg font-bold text-text-primary dark:text-white">معلومات الدليل للكشافة التونسية</h3>
             <div className="space-y-3 text-sm text-text-secondary dark:text-gray-400 leading-relaxed font-semibold">
               <div className="flex justify-between">
@@ -1059,8 +1127,8 @@ export function SettingsScreen({
 
         {/* Favorite Starred Items directory listing (client-storage dashboard) */}
         <div className="md:col-span-5 space-y-4">
-          <div className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-6 rounded-3xl shadow-sm space-y-4">
-            <div className="flex items-center justify-between pb-2 border-b border-gray-50 dark:border-emerald-950">
+          <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-6 rounded-3xl shadow-sm space-y-4">
+            <div className="flex items-center justify-between pb-2 border-b border-gray-50 dark:border-red-950/20">
               <h3 className="font-bold text-base text-text-primary dark:text-white flex items-center gap-1.5">
                 <BookmarkCheck className="w-5 h-5 text-secondary" />
                 <span>المشاريع المحفوظة والمفضلة ({favorites.length})</span>
@@ -1101,7 +1169,7 @@ export function SettingsScreen({
                   return (
                     <div 
                       key={favId}
-                      className="bg-gray-50 dark:bg-[#131914] p-3 rounded-xl border border-gray-100 dark:border-emerald-950/40 flex items-center justify-between"
+                      className="bg-gray-50 dark:bg-[#150e0f] p-3 rounded-xl border border-gray-100 dark:border-red-950/20 flex items-center justify-between"
                     >
                       <button
                         onClick={() => onNavigate(targetScreen)}
@@ -1118,6 +1186,432 @@ export function SettingsScreen({
                     </div>
                   );
                 })}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// ==========================================
+// 5. REGISTRATION SCREEN (INSCRIPTION)
+// ==========================================
+export function RegistrationScreen() {
+  const [regType, setRegType] = useState<'new' | 'returning'>('new');
+  const [formData, setFormData] = useState({
+    fullName: '',
+    age: '',
+    troop: 'فوج ميدون',
+    scoutSection: 'أشبال (7-12 سنة)',
+    scoutId: '',
+    lastRank: '',
+    parentName: '',
+    parentPhone: '',
+    notes: ''
+  });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [registrations, setRegistrations] = useState<any[]>([]);
+
+  // Load existing registrations from localStorage
+  useEffect(() => {
+    const saved = localStorage.getItem('scouts-registrations');
+    if (saved) {
+      try {
+        setRegistrations(JSON.parse(saved));
+      } catch (e) {
+        console.error(e);
+      }
+    }
+  }, []);
+
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = 'الرجاء إدخال الاسم واللقب بالكامل';
+    }
+    if (!formData.age.trim() || isNaN(Number(formData.age)) || Number(formData.age) <= 0) {
+      newErrors.age = 'الرجاء إدخال عمر صحيح بالسنوات';
+    }
+    if (regType === 'new') {
+      const ageNum = Number(formData.age);
+      if (ageNum > 0 && ageNum < 18) {
+        if (!formData.parentName.trim()) {
+          newErrors.parentName = 'اسم ولي الأمر مطلوب للفتية دون 18 سنة';
+        }
+        if (!formData.parentPhone.trim()) {
+          newErrors.parentPhone = 'رقم هاتف ولي الأمر مطلوب للاتصال والتأكيد';
+        }
+      }
+    } else {
+      if (!formData.scoutId.trim()) {
+        newErrors.scoutId = 'الرجاء إدخال الرقم التعريفي الكشفي للمنخرط';
+      }
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+
+    const newReg = {
+      ...formData,
+      id: 'REG_' + Date.now(),
+      type: regType,
+      date: new Date().toLocaleDateString('ar-TN'),
+      status: 'قيد المراجعة والمواءمة التنظيمية'
+    };
+
+    const updated = [newReg, ...registrations];
+    setRegistrations(updated);
+    localStorage.setItem('scouts-registrations', JSON.stringify(updated));
+    setIsSubmitted(true);
+
+    // Reset Form
+    setFormData({
+      fullName: '',
+      age: '',
+      troop: 'فوج ميدون',
+      scoutSection: 'أشبال (7-12 سنة)',
+      scoutId: '',
+      lastRank: '',
+      parentName: '',
+      parentPhone: '',
+      notes: ''
+    });
+  };
+
+  const handleClearHistory = () => {
+    if (confirm('هل أنت متأكد من رغبتك في تصفير سجل طلبات الانخراط المحلية؟')) {
+      setRegistrations([]);
+      localStorage.removeItem('scouts-registrations');
+    }
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -15 }}
+      className="space-y-6"
+    >
+      <div>
+        <h1 className="text-2xl font-extrabold text-text-primary dark:text-white flex items-center gap-2">
+          <UserPlus className="w-7 h-7 text-primary" />
+          <span>بوابة الانخراط والتسجيل الإلكتروني الموحد 2026</span>
+        </h1>
+        <p className="text-sm text-text-secondary dark:text-gray-400 mt-1">
+          سجل انخراطك بالفوج أو أعد تسجيل عضويتك السنوية المعتمدة بجهة مدنين لمواصلة المسيرة الكشفية.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        {/* Registration Form Column */}
+        <div className="lg:col-span-7 space-y-6">
+          {/* Tabs for Registration Type */}
+          <div className="grid grid-cols-2 gap-2 bg-gray-100/60 dark:bg-[#150e0f] p-1 rounded-2xl border border-gray-100 dark:border-red-950/20">
+            <button
+              onClick={() => {
+                setRegType('new');
+                setIsSubmitted(false);
+                setErrors({});
+              }}
+              className={`py-3 px-4 rounded-xl text-xs font-black transition-all flex items-center justify-center gap-2 ${
+                regType === 'new'
+                  ? 'bg-primary text-white shadow-sm'
+                  : 'text-text-secondary dark:text-gray-300 hover:bg-white/50 dark:hover:bg-[#150e0f]/60'
+              }`}
+            >
+              <UserPlus className="w-4 h-4" />
+              <span>تسجيل منخرط جديد</span>
+            </button>
+            <button
+              onClick={() => {
+                setRegType('returning');
+                setIsSubmitted(false);
+                setErrors({});
+              }}
+              className={`py-3 px-4 rounded-xl text-xs font-black transition-all flex items-center justify-center gap-2 ${
+                regType === 'returning'
+                  ? 'bg-primary text-white shadow-sm'
+                  : 'text-text-secondary dark:text-gray-300 hover:bg-white/50 dark:hover:bg-[#150e0f]/60'
+              }`}
+            >
+              <History className="w-4 h-4" />
+              <span>إعادة تسجيل عضو قديم</span>
+            </button>
+          </div>
+
+          {isSubmitted ? (
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="bg-white dark:bg-[#110708] border border-red-100 dark:border-red-950/40 p-8 rounded-3xl text-center space-y-4 shadow-sm"
+            >
+              <div className="w-16 h-16 bg-red-50 dark:bg-red-950/20 text-primary mx-auto rounded-full flex items-center justify-center">
+                <CheckCircle2 className="w-10 h-10" />
+              </div>
+              <h3 className="text-xl font-extrabold text-text-primary dark:text-white">تم إرسال طلب الانخراط بنجاح!</h3>
+              <p className="text-sm text-text-secondary dark:text-gray-400 max-w-md mx-auto leading-relaxed">
+                لقد تم حفظ وتوثيق طلبك بالذاكرة المحلية لعام 2026 وجارٍ مزامنته مع القيادة الجهوية بجهة مدنين وهيئة الفوج الكشفي للموافقة وتفعيل الاشتراك.
+              </p>
+              <div className="pt-4">
+                <button
+                  onClick={() => setIsSubmitted(false)}
+                  className="px-6 py-2.5 bg-primary hover:bg-primary-light text-white rounded-xl text-xs font-bold transition-all shadow-sm"
+                >
+                  تقديم طلب انخراط آخر
+                </button>
+              </div>
+            </motion.div>
+          ) : (
+            <form onSubmit={handleSubmit} className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-6 md:p-8 rounded-3xl shadow-xs space-y-5 text-right">
+              <h3 className="text-base font-extrabold text-text-primary dark:text-white border-b border-gray-50 dark:border-red-950/20 pb-3 flex items-center gap-2">
+                <ClipboardList className="w-5 h-5 text-primary" />
+                <span>استمارة التسجيل الإلكترونية الموحدة لعام 2026</span>
+              </h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Full Name */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-black text-text-primary dark:text-white">الاسم الثلاثي واللقب بالكامل *</label>
+                  <input
+                    type="text"
+                    value={formData.fullName}
+                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                    placeholder="مثال: أحمد بن علي التونسي"
+                    className={`w-full bg-gray-50 dark:bg-[#150e0f] border ${errors.fullName ? 'border-primary' : 'border-gray-200 dark:border-red-950/40'} rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right`}
+                  />
+                  {errors.fullName && <p className="text-[10px] text-primary font-bold">{errors.fullName}</p>}
+                </div>
+
+                {/* Age */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-black text-text-primary dark:text-white">السن الفعلي بالسنوات *</label>
+                  <input
+                    type="number"
+                    value={formData.age}
+                    onChange={(e) => setFormData({ ...formData, age: e.target.value })}
+                    placeholder="مثال: 14"
+                    className={`w-full bg-gray-50 dark:bg-[#150e0f] border ${errors.age ? 'border-primary' : 'border-gray-200 dark:border-red-950/40'} rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right`}
+                  />
+                  {errors.age && <p className="text-[10px] text-primary font-bold">{errors.age}</p>}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Troop selection */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-black text-text-primary dark:text-white">الفوج الكشفي المطلوب *</label>
+                  <select
+                    value={formData.troop}
+                    onChange={(e) => setFormData({ ...formData, troop: e.target.value })}
+                    className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-200 dark:border-red-950/40 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-primary transition-all text-right"
+                  >
+                    <option value="فوج ميدون">فوج ميدون (جربة)</option>
+                    <option value="فوج جربة حومة السوق">فوج جربة حومة السوق</option>
+                    <option value="فوج جرجيس">فوج جرجيس</option>
+                    <option value="فوج بنقردان">فوج بنقردان</option>
+                    <option value="فوج مدنين الشمالية">فوج مدنين الشمالية</option>
+                    <option value="فوج مدنين الجنوبية">فوج مدنين الجنوبية</option>
+                    <option value="فوج تونس العاصمة البلفيدير">فوج تونس العاصمة البلفيدير</option>
+                    <option value="أفواج أخرى بالجمهورية">أفواج أخرى بالجمهورية التونسية</option>
+                  </select>
+                </div>
+
+                {/* Scout Section */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-black text-text-primary dark:text-white">القسم الكشفي (المرحلة) *</label>
+                  <select
+                    value={formData.scoutSection}
+                    onChange={(e) => setFormData({ ...formData, scoutSection: e.target.value })}
+                    className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-200 dark:border-red-950/40 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-primary transition-all text-right"
+                  >
+                    <option value="أشبال (7-12 سنة)">قسم الأشبال (7-12 سنة)</option>
+                    <option value="فتيان (12-16 سنة)">قسم الفتيان (12-16 سنة)</option>
+                    <option value="كشاف متقدم (15-18 سنة)">قسم الكشاف المتقدم (15-18 سنة)</option>
+                    <option value="جوالة ودليلات (18-23 سنة)">قسم الجوالة والدليلات (18-23 سنة)</option>
+                    <option value="رواد وأحباء (أكبر من 23 سنة)">قسم الرواد والأحباء (قدماء الكشافة)</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Conditional rendering depending on REGTYPE */}
+              {regType === 'returning' ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 border-t border-gray-50 dark:border-red-950/20">
+                  {/* Scout ID */}
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-black text-text-primary dark:text-white">الرقم التعريفي الكشفي السابق *</label>
+                    <input
+                      type="text"
+                      value={formData.scoutId}
+                      onChange={(e) => setFormData({ ...formData, scoutId: e.target.value })}
+                      placeholder="مثال: TN-2025-9874"
+                      className={`w-full bg-gray-50 dark:bg-[#150e0f] border ${errors.scoutId ? 'border-primary' : 'border-gray-200 dark:border-red-950/40'} rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-primary transition-all text-right`}
+                    />
+                    {errors.scoutId && <p className="text-[10px] text-primary font-bold">{errors.scoutId}</p>}
+                  </div>
+
+                  {/* Last Rank */}
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-black text-text-primary dark:text-white">آخر رتبة أو شارة كشفية حصلت عليها</label>
+                    <input
+                      type="text"
+                      value={formData.lastRank}
+                      onChange={(e) => setFormData({ ...formData, lastRank: e.target.value })}
+                      placeholder="مثال: كشاف ثاني، شارة الجدار المتقدمة"
+                      className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-200 dark:border-red-950/40 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-primary transition-all text-right"
+                    />
+                  </div>
+                </div>
+              ) : (
+                // If New and under 18, show Parent Info
+                Number(formData.age) > 0 && Number(formData.age) < 18 && (
+                  <motion.div 
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-gray-50 dark:border-red-950/20"
+                  >
+                    {/* Parent Name */}
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-black text-text-primary dark:text-white">اسم ولي الأمر بالكامل *</label>
+                      <input
+                        type="text"
+                        value={formData.parentName}
+                        onChange={(e) => setFormData({ ...formData, parentName: e.target.value })}
+                        placeholder="اسم الأب أو الأم الكفيل"
+                        className={`w-full bg-gray-50 dark:bg-[#150e0f] border ${errors.parentName ? 'border-primary' : 'border-gray-200 dark:border-red-950/40'} rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-primary transition-all text-right`}
+                      />
+                      {errors.parentName && <p className="text-[10px] text-primary font-bold">{errors.parentName}</p>}
+                    </div>
+
+                    {/* Parent Phone */}
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-black text-text-primary dark:text-white">رقم هاتف ولي الأمر للتأكيد *</label>
+                      <input
+                        type="text"
+                        value={formData.parentPhone}
+                        onChange={(e) => setFormData({ ...formData, parentPhone: e.target.value })}
+                        placeholder="مثال: 0021650123456"
+                        className={`w-full bg-gray-50 dark:bg-[#150e0f] border ${errors.parentPhone ? 'border-primary' : 'border-gray-200 dark:border-red-950/40'} rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-primary transition-all text-right`}
+                      />
+                      {errors.parentPhone && <p className="text-[10px] text-primary font-bold">{errors.parentPhone}</p>}
+                    </div>
+                  </motion.div>
+                )
+              )}
+
+              {/* Extra notes */}
+              <div className="space-y-1.5">
+                <label className="text-xs font-black text-text-primary dark:text-white">ملاحظات أو مهارات خاصة تود مشاركتها مع القائد</label>
+                <textarea
+                  value={formData.notes}
+                  onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                  placeholder="مثال: إتقان العزف، الإسعافات الأولية، الرسم، البرمجة..."
+                  rows={3}
+                  className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-200 dark:border-red-950/40 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-primary transition-all text-right"
+                />
+              </div>
+
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  className="w-full py-4 bg-primary hover:bg-primary-light text-white font-extrabold rounded-xl text-sm transition-all shadow-md shadow-primary/20 flex items-center justify-center gap-2"
+                >
+                  <UserCheck className="w-5 h-5 text-accent" />
+                  <span>تقديم طلب الانخراط الرسمي لعام 2026</span>
+                </button>
+              </div>
+            </form>
+          )}
+        </div>
+
+        {/* History and Saved Inscriptions Column */}
+        <div className="lg:col-span-5 space-y-6">
+          {/* Informational Card */}
+          <div className="bg-gradient-to-br from-primary to-rose-950 text-white p-6 rounded-3xl space-y-4 shadow-sm relative overflow-hidden text-right">
+            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <div className="relative z-10 space-y-3">
+              <span className="bg-white/15 backdrop-blur-md text-accent text-[10px] font-extrabold px-3 py-1.5 rounded-full border border-white/10 inline-block">
+                هيئة الموارد والتمكين الكشفي
+              </span>
+              <h3 className="text-lg font-extrabold">شروط وضوابط الانخراط 2026</h3>
+              <p className="text-xs text-white/85 leading-relaxed">
+                الانخراط في الكشافة التونسية يمنح الفتية والشباب رخصة وطنية للمشاركة بجميع المخيمات، الخرجات الخلوية، الملتقيات الوطنية بدار الفياضة، والدورات التدريبية المعتمدة عربياً ودولياً.
+              </p>
+              <div className="pt-3 border-t border-white/10 space-y-2 text-[10px] text-white/80 font-bold">
+                <p>• الالتزام التام بـ الوعد والقانون الكشفي الوطني.</p>
+                <p>• تفعيل قسط الاشتراك السنوي لتأمين الحماية من الحوادث.</p>
+                <p>• إرفاق موافقة مكتوبة من ولي الأمر لمن هم دون 18 سنة.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Local Registrations Scribe */}
+          <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-6 rounded-3xl shadow-xs space-y-4 text-right">
+            <div className="flex items-center justify-between pb-2 border-b border-gray-50 dark:border-red-950/20">
+              <h3 className="font-extrabold text-sm text-text-primary dark:text-white flex items-center gap-1.5">
+                <ClipboardList className="w-5 h-5 text-primary" />
+                <span>طلبات الانخراط المحلية ({registrations.length})</span>
+              </h3>
+              {registrations.length > 0 && (
+                <button
+                  onClick={handleClearHistory}
+                  className="text-xs text-red-500 font-bold hover:underline flex items-center gap-1"
+                >
+                  <Trash2 className="w-3.5 h-3.5" />
+                  <span>تصفير السجل</span>
+                </button>
+              )}
+            </div>
+
+            {registrations.length === 0 ? (
+              <div className="py-8 text-center space-y-2">
+                <History className="w-10 h-10 text-gray-200 dark:text-gray-700 mx-auto" strokeWidth="1.5" />
+                <p className="text-xs text-text-secondary dark:text-gray-400">لا توجد طلبات مسجلة حالياً.</p>
+                <p className="text-[10px] text-text-secondary dark:text-gray-500 leading-tight">
+                  عند ملء الاستمارة وتقديمها بنجاح، ستظهر تفاصيل انخراطك وتأكيدك المكتبي هنا للمتابعة والتحقق والطباعة.
+                </p>
+              </div>
+            ) : (
+              <div className="space-y-4 max-h-[350px] overflow-y-auto pr-1">
+                {registrations.map((reg) => (
+                  <div
+                    key={reg.id}
+                    className="p-4 rounded-2xl bg-gray-50 dark:bg-[#150e0f] border border-gray-100 dark:border-red-950/20 space-y-3"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] bg-red-50 text-primary dark:bg-red-950/30 px-2.5 py-1 rounded-full font-extrabold shrink-0">
+                        {reg.type === 'new' ? 'عضو جديد' : 'عضو قديم'}
+                      </span>
+                      <span className="text-[9px] text-text-secondary dark:text-gray-500 font-bold">{reg.date}</span>
+                    </div>
+
+                    <div className="space-y-1 text-xs">
+                      <p className="font-extrabold text-text-primary dark:text-white">{reg.fullName}</p>
+                      <p className="text-text-secondary dark:text-gray-400 font-semibold">
+                        العمر: <span className="text-text-primary dark:text-white font-bold">{reg.age} سنة</span> | {reg.troop}
+                      </p>
+                      <p className="text-text-secondary dark:text-gray-400 font-semibold">
+                        المرحلة: <span className="text-primary font-bold">{reg.scoutSection}</span>
+                      </p>
+                      {reg.scoutId && (
+                        <p className="text-text-secondary dark:text-gray-400 font-semibold">
+                          الرقم الكشفي: <span className="font-mono text-text-primary dark:text-white">{reg.scoutId}</span>
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="pt-2 border-t border-gray-100 dark:border-red-950/10 flex items-center justify-between text-[10px] font-bold">
+                      <span className="text-orange-500">{reg.status}</span>
+                      <span className="text-text-secondary dark:text-gray-500">معرّف الطلب: {reg.id.split('_')[1]}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             )}
           </div>

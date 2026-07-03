@@ -48,7 +48,7 @@ export function LeadershipScreen() {
       </div>
 
       {/* Category Tabs */}
-      <div className="flex bg-gray-100/60 dark:bg-[#131914] p-1 rounded-2xl border border-gray-100 dark:border-emerald-950/40 max-w-md">
+      <div className="flex bg-gray-100/60 dark:bg-[#150e0f] p-1 rounded-2xl border border-gray-100 dark:border-red-950/20 max-w-md">
         {(['national', 'general', 'pioneers'] as const).map((tab) => (
           <button
             key={tab}
@@ -56,7 +56,7 @@ export function LeadershipScreen() {
             className={`flex-1 py-3 px-3 rounded-xl text-xs font-bold transition-all ${
               activeTab === tab
                 ? 'bg-primary text-white shadow-sm'
-                : 'text-text-secondary dark:text-gray-300 hover:bg-white/40 dark:hover:bg-[#1e271f]'
+                : 'text-text-secondary dark:text-gray-300 hover:bg-white/40 dark:hover:bg-[#201012]'
             }`}
           >
             {tab === 'national' ? 'الهياكل الوطنية العليا' : tab === 'general' ? 'القيادة العامة' : 'الرواد والأحباء'}
@@ -68,8 +68,8 @@ export function LeadershipScreen() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-2">
         {/* Leadership node selectors */}
         <div className="lg:col-span-5 space-y-4">
-          <div className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-5 rounded-3xl shadow-sm space-y-3">
-            <span className="text-xs font-bold text-text-secondary dark:text-gray-400 block pb-2 border-b border-gray-50 dark:border-emerald-950/40">اختر منصب قراءة الصلاحيات:</span>
+          <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-5 rounded-3xl shadow-sm space-y-3">
+            <span className="text-xs font-bold text-text-secondary dark:text-gray-400 block pb-2 border-b border-gray-50 dark:border-red-950/20">اختر منصب قراءة الصلاحيات:</span>
             {filteredRoles.map((role) => (
               <button
                 key={role.id}
@@ -77,11 +77,11 @@ export function LeadershipScreen() {
                 className={`w-full p-4 rounded-xl text-right transition-all flex items-center justify-between border ${
                   activeRole?.id === role.id 
                     ? 'bg-primary/5 dark:bg-primary/20 border-primary text-primary dark:text-primary-light font-bold' 
-                    : 'bg-gray-50 dark:bg-[#131914] border-gray-100 dark:border-emerald-950/20 text-text-secondary dark:text-gray-300 hover:bg-gray-100/60 dark:hover:bg-[#1f2720]'
+                    : 'bg-gray-50 dark:bg-[#150e0f] border-gray-100 dark:border-red-950/20 text-text-secondary dark:text-gray-300 hover:bg-gray-100/60 dark:hover:bg-[#201012]'
                 }`}
               >
                 <div className="flex items-center gap-3">
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${activeRole?.id === role.id ? 'bg-primary text-white' : 'bg-gray-200 dark:bg-[#202a21]'}`}>
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${activeRole?.id === role.id ? 'bg-primary text-white' : 'bg-gray-200 dark:bg-[#201012]'}`}>
                     <Users className="w-4.5 h-4.5" />
                   </div>
                   <span className="text-sm">{role.title}</span>
@@ -103,7 +103,7 @@ export function LeadershipScreen() {
               key={activeRole.id}
               initial={{ opacity: 0, x: -15 }}
               animate={{ opacity: 1, x: 0 }}
-              className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-6 md:p-8 rounded-3xl shadow-sm space-y-6 text-right"
+              className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-6 md:p-8 rounded-3xl shadow-sm space-y-6 text-right"
             >
               <div>
                 <h3 className="font-extrabold text-xl text-text-primary dark:text-white">{activeRole.title}</h3>
@@ -113,7 +113,7 @@ export function LeadershipScreen() {
               <div className="space-y-4">
                 <div className="space-y-2">
                   <h4 className="font-bold text-sm text-text-primary dark:text-white">وصف وحوكمة الدور الكشفي:</h4>
-                  <p className="text-sm text-text-secondary dark:text-gray-300 leading-relaxed bg-gray-50 dark:bg-emerald-950/20 p-4 rounded-2xl border-r-4 border-primary font-medium">
+                  <p className="text-sm text-text-secondary dark:text-gray-300 leading-relaxed bg-gray-50 dark:bg-red-950/25 p-4 rounded-2xl border-r-4 border-primary font-medium">
                     {activeRole.description}
                   </p>
                 </div>
@@ -121,7 +121,7 @@ export function LeadershipScreen() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
                   <div className="space-y-3">
                     <h5 className="font-bold text-sm text-text-primary dark:text-white border-b border-gray-50 pb-1.5 flex items-center gap-1">
-                      <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                      <ShieldCheck className="w-4 h-4 text-primary" />
                       <span>المسؤوليات والصلاحيات القانونية:</span>
                     </h5>
                     <ul className="space-y-2 text-xs text-text-secondary dark:text-gray-300 leading-relaxed font-semibold">
@@ -152,7 +152,7 @@ export function LeadershipScreen() {
               </div>
             </motion.div>
           ) : (
-            <div className="bg-gray-50 dark:bg-[#121713] h-full rounded-3xl border border-dashed border-gray-200 dark:border-emerald-950 flex flex-col items-center justify-center p-8 text-center space-y-2">
+            <div className="bg-gray-50 dark:bg-[#150e0f] h-full rounded-3xl border border-dashed border-gray-200 dark:border-red-950/20 flex flex-col items-center justify-center p-8 text-center space-y-2">
               <Users className="w-12 h-12 text-gray-300 dark:text-gray-700" strokeWidth="1.5" />
               <p className="text-sm font-bold text-text-primary dark:text-white">الرجاء اختيار أحد القادة لاستعراض التفاصيل</p>
             </div>
@@ -188,7 +188,7 @@ export function StructureScreen() {
         { name: 'المجلس الجهوي الاستشاري', desc: 'يضم خبراء وقدماء الكشافة بالولاية لتقديم العون وتوجيه المشاريع التنموية.' }
       ],
       icon: MapPin,
-      color: 'border-emerald-100 dark:border-emerald-950/30 bg-emerald-50/50 dark:bg-[#142016]'
+      color: 'border-red-100 dark:border-red-950/20 bg-red-50/50 dark:bg-[#201012]'
     },
     {
       title: '3. الهيكلية المحلية (الأفواج ووحدات النشاط الميدانية)',
@@ -227,7 +227,7 @@ export function StructureScreen() {
             >
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white dark:bg-[#161c17] text-primary dark:text-primary-light flex items-center justify-center shadow-xs">
+                  <div className="w-10 h-10 rounded-xl bg-white dark:bg-[#150e0f] text-primary dark:text-primary-light flex items-center justify-center shadow-xs">
                     <LevelIcon className="w-5 h-5" />
                   </div>
                   <h3 className="font-extrabold text-base text-text-primary dark:text-white leading-snug">{level.title}</h3>
@@ -239,7 +239,7 @@ export function StructureScreen() {
 
               <div className="space-y-3.5 pt-2">
                 {level.elements.map((elem, eIdx) => (
-                  <div key={eIdx} className="bg-white/80 dark:bg-[#151a16] p-4 rounded-xl border border-black/5 dark:border-emerald-950/40 relative">
+                  <div key={eIdx} className="bg-white/80 dark:bg-[#150e0f] p-4 rounded-xl border border-black/5 dark:border-red-950/20 relative">
                     <span className="font-bold text-xs text-primary dark:text-primary-light block">{elem.name}</span>
                     <p className="text-[11px] text-text-secondary dark:text-gray-400 mt-1.5 leading-relaxed font-medium">
                       {elem.desc}
@@ -274,15 +274,15 @@ export function SelectionScreen() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Guidelines columns */}
         <div className="lg:col-span-12 space-y-6">
-          <div className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-6 rounded-3xl shadow-sm space-y-6">
-            <h3 className="text-lg font-bold text-text-primary dark:text-white border-b border-gray-50 dark:border-emerald-950 pb-3">مستويات الترشيح التنافسي الكشفي</h3>
+          <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-6 rounded-3xl shadow-sm space-y-6">
+            <h3 className="text-lg font-bold text-text-primary dark:text-white border-b border-gray-50 dark:border-red-950/20 pb-3">مستويات الترشيح التنافسي الكشفي</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {SELECTION_PROCESS.levels.map((lvl, index) => (
-                <div key={index} className="bg-gray-50/50 dark:bg-[#131914] p-5 rounded-2xl border border-gray-100 dark:border-emerald-950/40 space-y-3 text-right">
+                <div key={index} className="bg-gray-50/50 dark:bg-[#150e0f] p-5 rounded-2xl border border-gray-100 dark:border-red-950/20 space-y-3 text-right">
                   <span className="text-[10px] bg-secondary/10 text-secondary dark:bg-orange-950/30 dark:text-orange-400 font-bold px-3 py-1 rounded-full">{lvl.type}</span>
                   <h4 className="font-extrabold text-sm text-text-primary dark:text-white leading-normal">{lvl.name}</h4>
-                  <p className="text-xs text-text-secondary dark:text-gray-400 leading-relaxed font-semibold pb-2 border-b border-gray-100 dark:border-emerald-950/40">
+                  <p className="text-xs text-text-secondary dark:text-gray-400 leading-relaxed font-semibold pb-2 border-b border-gray-100 dark:border-red-950/20">
                     {lvl.description}
                   </p>
                   <div className="space-y-2 pt-1">
@@ -302,7 +302,7 @@ export function SelectionScreen() {
           </div>
 
           {/* Scoring Index distribution guide */}
-          <div className="bg-gradient-to-tr from-emerald-50 to-emerald-100/50 dark:from-emerald-950/20 dark:to-[#172219] border border-emerald-100 dark:border-emerald-900/30 rounded-3xl p-6 md:p-8 space-y-5">
+          <div className="bg-gradient-to-tr from-red-50 to-red-100/50 dark:from-red-950/20 dark:to-[#201012] border border-red-100 dark:border-red-900/30 rounded-3xl p-6 md:p-8 space-y-5">
             <div>
               <h3 className="font-extrabold text-lg text-primary dark:text-primary-light">مصفوفة توزيع المائة نقطة (100% الشاملة)</h3>
               <p className="text-xs text-text-secondary dark:text-gray-300 mt-1">تعتمد القيادة العامة هذه الحدود لتصفية المقبولين دولياً ووطنياً لضمان النزاهية التخطيطية التربوية.</p>
@@ -310,7 +310,7 @@ export function SelectionScreen() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
               {SELECTION_PROCESS.scoringPoints.map((pt, idx) => (
-                <div key={idx} className="bg-white dark:bg-[#151c17] border border-emerald-100/40 dark:border-emerald-900/30 p-4 rounded-xl flex flex-col justify-between space-y-3 relative overflow-hidden text-right">
+                <div key={idx} className="bg-white dark:bg-[#110708] border border-red-100/40 dark:border-red-900/30 p-4 rounded-xl flex flex-col justify-between space-y-3 relative overflow-hidden text-right">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-black text-secondary">{pt.weight}%</span>
                     <span className="text-[10px] text-text-secondary dark:text-gray-400 font-bold">الحصة</span>
@@ -408,7 +408,7 @@ export function CalculatorScreen() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Interactive Sliders and Selection fields */}
-        <div className="lg:col-span-7 bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-6 md:p-8 rounded-3xl shadow-sm space-y-6">
+        <div className="lg:col-span-7 bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-6 md:p-8 rounded-3xl shadow-sm space-y-6">
           <h3 className="text-lg font-bold text-text-primary dark:text-white">حقول تفاعلية لحساب نقاط السيرة كشفياً</h3>
 
           <div className="space-y-5">
@@ -435,7 +435,7 @@ export function CalculatorScreen() {
               <select
                 value={scoutingRank}
                 onChange={(e) => setScoutingRank(e.target.value)}
-                className="w-full bg-gray-50 dark:bg-[#131914] border border-gray-200 dark:border-emerald-950 rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right font-bold text-text-primary dark:text-white"
+                className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-200 dark:border-red-950/20 rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right font-bold text-text-primary dark:text-white"
               >
                 <option value="none">قائد وحدة لم يتلقى توسيم الشارة الكشفية (0 ن)</option>
                 <option value="wood_badge">قائد حاصل على الشارة الخشبية كاملة (15 ن)</option>
@@ -447,7 +447,7 @@ export function CalculatorScreen() {
             {/* Audit Score selector */}
             <div>
               <label className="text-xs font-bold text-text-primary dark:text-gray-300 block mb-1">3. تقييم النشاط والأداء السابق (من المفوضين والمفتشين)</label>
-              <div className="grid grid-cols-3 gap-2 bg-gray-50 dark:bg-[#131914] p-1 rounded-xl border border-gray-200 dark:border-emerald-950/40">
+              <div className="grid grid-cols-3 gap-2 bg-gray-50 dark:bg-[#150e0f] p-1 rounded-xl border border-gray-200 dark:border-red-950/20">
                 {(['excellent', 'very_good', 'good'] as const).map((score) => (
                   <button
                     key={score}
@@ -467,7 +467,7 @@ export function CalculatorScreen() {
             {/* Academic level dropdown */}
             <div>
               <label className="text-xs font-bold text-text-primary dark:text-gray-300 block mb-1">4. المستوى الأكاديمي والشهادات الجامعية</label>
-              <div className="grid grid-cols-3 gap-2 bg-gray-50 dark:bg-[#131914] p-1 rounded-xl border border-gray-200 dark:border-emerald-950/40">
+              <div className="grid grid-cols-3 gap-2 bg-gray-50 dark:bg-[#150e0f] p-1 rounded-xl border border-gray-200 dark:border-red-950/20">
                 {(['bac', 'licence', 'master_doctorate'] as const).map((edu) => (
                   <button
                     key={edu}
@@ -490,7 +490,7 @@ export function CalculatorScreen() {
               <select
                 value={scoutingCommitment}
                 onChange={(e) => setScoutingCommitment(e.target.value)}
-                className="w-full bg-gray-50 dark:bg-[#131914] border border-gray-200 dark:border-emerald-950 rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right font-bold text-text-primary dark:text-white"
+                className="w-full bg-gray-50 dark:bg-[#150e0f] border border-gray-200 dark:border-red-950/20 rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-right font-bold text-text-primary dark:text-white"
               >
                 <option value="full">متفرغ بالكامل وبشكل نشط ويومي (10 ن)</option>
                 <option value="medium">متفرغ بحسب الورشات لمبادرتين شهرياً (7 ن)</option>
@@ -502,13 +502,13 @@ export function CalculatorScreen() {
 
         {/* Scoring gauge output result */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-6 md:p-8 rounded-3xl shadow-sm text-center space-y-5 relative">
+          <div className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-6 md:p-8 rounded-3xl shadow-sm text-center space-y-5 relative">
             <h3 className="font-extrabold text-base text-text-primary dark:text-white text-right">مؤشر ومحصل رصيد تقييم السيرة:</h3>
 
             {/* Radial scoreboard */}
-            <div className="relative w-36 h-36 mx-auto rounded-full border-8 border-gray-50 dark:border-[#202921] flex flex-col items-center justify-center shadow-inner">
+            <div className="relative w-36 h-36 mx-auto rounded-full border-8 border-gray-50 dark:border-[#201012] flex flex-col items-center justify-center shadow-inner">
               {/* Dynamic decorative circular border depending on score */}
-              <div className="absolute inset-[-8px] rounded-full border-8 border-emerald-600/30"></div>
+              <div className="absolute inset-[-8px] rounded-full border-8 border-primary/30"></div>
               <span className="text-4xl font-extrabold text-primary dark:text-primary-light tracking-tight">{totalPoints}</span>
               <span className="text-[10px] text-text-secondary dark:text-gray-400 font-bold">من 100 نقطة</span>
             </div>
@@ -521,7 +521,7 @@ export function CalculatorScreen() {
             </div>
 
             {/* Customized advice paragraph block */}
-            <div className="text-right bg-gray-50/50 dark:bg-emerald-950/10 p-4 rounded-xl border-r-2 border-secondary space-y-1.5">
+            <div className="text-right bg-gray-50/50 dark:bg-red-950/10 p-4 rounded-xl border-r-2 border-secondary space-y-1.5">
               <span className="text-[11px] font-black text-secondary block">نصائح القادة الموجهة لك:</span>
               <p className="text-xs text-text-secondary dark:text-gray-300 leading-relaxed font-semibold">
                 {resultDetails.advice}

@@ -33,7 +33,8 @@ import {
   Sparkles,
   AwardIcon,
   Tent,
-  Calendar
+  Calendar,
+  UserPlus
 } from 'lucide-react';
 
 // Hooks
@@ -47,7 +48,8 @@ import {
   HomeScreen, 
   NewsScreen, 
   ContactScreen, 
-  SettingsScreen 
+  SettingsScreen,
+  RegistrationScreen
 } from './screens/CoreScreens';
 import { 
   EducationScreen, 
@@ -68,11 +70,15 @@ import {
   DocumentsScreen 
 } from './screens/RegulatoryScreens';
 import { CovenantScreen } from './screens/CovenantScreen';
+import { LeaderVerificationGate } from './components/LeaderVerificationGate';
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<string>('home');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [isLeaderVerified, setIsLeaderVerified] = useState<boolean>(() => {
+    return localStorage.getItem('scouts-leader-verified') === 'true';
+  });
 
   // Initialize modular hooks
   const { theme, toggleTheme, fontSize, setFontSize } = useTheme();
@@ -90,6 +96,7 @@ export default function App() {
   const allScreens = [
     { id: 'home', title: 'البداية والملخص', icon: Compass, category: 'عام' },
     { id: 'news', title: 'الأخبار والتقارير 2026', icon: Newspaper, category: 'عام' },
+    { id: 'registration', title: 'التسجيل والانخراط الإلكتروني', icon: UserPlus, category: 'عام' },
     
     { id: 'education', title: 'الشروط الدراسية (12 خطة)', icon: BookOpen, category: 'التعليم والتدريب' },
     { id: 'curriculum', title: 'المناهج والأقسام الكشفية', icon: Tent, category: 'التعليم والتدريب' },
@@ -113,11 +120,30 @@ export default function App() {
 
   // Screen routing picker rendering
   const renderScreenContent = () => {
+    const isRestricted = [
+      'education', 'curriculum', 'training', 'covenant', 'planner',
+      'leadership', 'structure', 'selection',
+      'forms', 'documents', 'faq', 'penalties'
+    ].includes(currentScreen);
+
+    if (isRestricted && !isLeaderVerified) {
+      return (
+        <LeaderVerificationGate 
+          onVerify={() => {
+            setIsLeaderVerified(true);
+            localStorage.setItem('scouts-leader-verified', 'true');
+          }} 
+        />
+      );
+    }
+
     switch (currentScreen) {
       case 'home':
         return <HomeScreen onNavigate={setCurrentScreen} favorites={favorites} toggleFavorite={toggleFavorite} />;
       case 'news':
         return <NewsScreen favorites={favorites} toggleFavorite={toggleFavorite} />;
+      case 'registration':
+        return <RegistrationScreen />;
       case 'education':
         return <EducationScreen favorites={favorites} toggleFavorite={toggleFavorite} />;
       case 'curriculum':
@@ -174,7 +200,7 @@ export default function App() {
         <p className="text-xs text-text-secondary dark:text-gray-400 mt-1">تفتيش متزامن في القوانين، الأخبار، المناهج، وثائق فض النزاعات وشروط قيادة الهياكل لعام 2026</p>
       </div>
 
-      <div className="relative max-w-lg bg-white dark:bg-[#1a201b] rounded-2xl border border-gray-100 dark:border-emerald-950 p-1 flex items-center shadow-lg">
+      <div className="relative max-w-lg bg-white dark:bg-[#110708] rounded-2xl border border-gray-100 dark:border-red-950/20 p-1 flex items-center shadow-lg">
         <Search className="w-5 h-5 text-gray-400 mr-3 shrink-0" />
         <input 
           type="text"
@@ -204,13 +230,13 @@ export default function App() {
                 setCurrentScreen(res.screenTarget);
                 setSearchQuery('');
               }}
-              className="bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950 p-5 rounded-2xl shadow-xs hover:border-emerald-300 dark:hover:border-emerald-900 cursor-pointer transition-all text-right space-y-2"
+              className="bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 p-5 rounded-2xl shadow-xs hover:border-red-300 dark:hover:border-red-900 cursor-pointer transition-all text-right space-y-2"
             >
               <div className="flex justify-between items-start gap-4">
                 <h4 className="font-extrabold text-sm text-text-primary dark:text-white hover:text-primary transition-colors leading-tight">
                   {res.title}
                 </h4>
-                <span className="text-[10px] bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 px-2.5 py-1 rounded-full font-bold shrink-0">
+                <span className="text-[10px] bg-red-50 text-red-700 dark:bg-red-950/40 dark:text-red-300 px-2.5 py-1 rounded-full font-bold shrink-0">
                   {res.subtitle}
                 </span>
               </div>
@@ -229,7 +255,7 @@ export default function App() {
           )}
         </div>
       ) : (
-        <div className="py-12 text-center space-y-3 bg-white dark:bg-[#1a201b] border border-gray-100 dark:border-emerald-950/20 rounded-3xl p-6">
+        <div className="py-12 text-center space-y-3 bg-white dark:bg-[#110708] border border-gray-100 dark:border-red-950/20 rounded-3xl p-6">
           <Sparkles className="w-10 h-10 text-primary dark:text-primary-light mx-auto animate-pulse-slow" />
           <p className="text-sm font-bold text-text-primary dark:text-white">جاهز للتفتيش الكشفي الدستوري</p>
           <p className="text-xs text-text-secondary dark:text-gray-400 max-w-md mx-auto leading-relaxed">
@@ -252,7 +278,7 @@ export default function App() {
       )}
 
       {/* Sider Navigator Layout (Shown on Desktop) */}
-      <aside className="hidden lg:flex w-72 bg-white dark:bg-[#121813] border-l border-gray-100 dark:border-emerald-950 flex-col justify-between py-6 px-4 shrink-0 shadow-xs h-screen sticky top-0 print:hidden overflow-y-auto">
+      <aside className="hidden lg:flex w-72 bg-white dark:bg-[#110708] border-l border-gray-100 dark:border-red-950/30 flex-col justify-between py-6 px-4 shrink-0 shadow-xs h-screen sticky top-0 print:hidden overflow-y-auto">
         <div className="space-y-6">
           {/* Logo Brand Header */}
           <div className="flex items-center gap-3 px-2">
@@ -288,7 +314,7 @@ export default function App() {
                           className={`w-full text-right px-3 py-2 text-xs font-bold rounded-xl transition-all flex items-center gap-2.5 ${
                             isActive
                               ? 'bg-primary text-white shadow-sm shadow-primary/10'
-                              : 'text-text-secondary dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-emerald-950/20'
+                              : 'text-text-secondary dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-red-950/15'
                           }`}
                         >
                           <ScreenIcon className={`w-4 h-4 ${isActive ? 'text-accent' : 'text-primary dark:text-primary-light'}`} />
@@ -303,15 +329,53 @@ export default function App() {
           </div>
         </div>
 
+        {/* Leader Status Panel in Sidebar */}
+        <div className="mt-auto pt-4 border-t border-gray-50 dark:border-red-950/20 px-2 space-y-3">
+          {isLeaderVerified ? (
+            <div className="bg-red-50/50 dark:bg-red-950/25 border border-red-100 dark:border-red-900/40 p-3 rounded-2xl text-right space-y-1.5">
+              <div className="flex items-center gap-1.5 text-primary">
+                <span className="w-2 h-2 rounded-full bg-red-600 animate-ping shrink-0" />
+                <span className="text-[11px] font-black">قائد كشفي معتمد</span>
+              </div>
+              <p className="text-[10px] text-text-secondary dark:text-gray-400 font-semibold leading-relaxed">
+                مرحباً بك، تصفح كامل المستندات، الخطط والمناهج السرية نشط بالكامل.
+              </p>
+              <button
+                onClick={() => {
+                  setIsLeaderVerified(false);
+                  localStorage.removeItem('scouts-leader-verified');
+                  setCurrentScreen('home');
+                }}
+                className="w-full text-center py-1.5 bg-white dark:bg-[#150e0f] text-[10px] font-bold border border-red-100 dark:border-red-950/40 text-primary hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg transition-all"
+              >
+                قفل التصفح القيادي 🔒
+              </button>
+            </div>
+          ) : (
+            <div className="bg-gray-50 dark:bg-[#150e0f] border border-gray-100 dark:border-red-950/20 p-3 rounded-2xl text-right space-y-1">
+              <span className="text-[10px] text-text-secondary dark:text-gray-400 font-bold block">حالة الحساب: زائر (محدود)</span>
+              <p className="text-[9px] text-gray-400 leading-normal">
+                الخطط التربوية والتشريعات تتطلب هوية قيادية.
+              </p>
+              <button
+                onClick={() => setCurrentScreen('education')}
+                className="w-full text-center py-1.5 bg-primary text-white text-[10px] font-bold rounded-lg transition-all hover:bg-primary-light"
+              >
+                تفعيل دخول القادة ⚡
+              </button>
+            </div>
+          )}
+        </div>
+
         {/* Brand Bottom License footer */}
-        <div className="pt-4 border-t border-gray-50 dark:border-emerald-950 px-2 text-[9px] text-text-secondary dark:text-gray-400 font-medium">
+        <div className="pt-4 border-t border-gray-50 dark:border-red-950/20 px-2 text-[9px] text-text-secondary dark:text-gray-400 font-medium">
           <p>© 2026 الكشافة التونسية.</p>
           <p className="mt-1">صُمم بحرفية عالية للتنمية القيادية.</p>
         </div>
       </aside>
 
       {/* Screen Mobile AppBar structure (FlexibleAppBar) */}
-      <header className="lg:hidden bg-white/95 dark:bg-[#121813]/95 backdrop-blur-md border-b border-gray-100 dark:border-emerald-950 py-3.5 px-4 sticky top-0 z-40 flex items-center justify-between shadow-xs print:hidden">
+      <header className="lg:hidden bg-white/95 dark:bg-[#110708]/95 backdrop-blur-md border-b border-gray-100 dark:border-red-950/30 py-3.5 px-4 sticky top-0 z-40 flex items-center justify-between shadow-xs print:hidden">
         <div className="flex items-center gap-3">
           <button 
             onClick={() => setIsSidebarOpen(true)}
@@ -360,7 +424,7 @@ export default function App() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 220 }}
-              className="relative w-80 bg-white dark:bg-[#121813] h-full flex flex-col justify-between py-6 px-4 shadow-2xl z-10 text-right overflow-y-auto"
+              className="relative w-80 bg-white dark:bg-[#110708] h-full flex flex-col justify-between py-6 px-4 shadow-2xl z-10 text-right overflow-y-auto"
             >
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
@@ -417,6 +481,45 @@ export default function App() {
                 </div>
               </div>
 
+              {/* Leader Status Panel in Mobile Drawer */}
+              <div className="mt-auto pt-4 border-t border-gray-50 dark:border-red-950/20 px-2 space-y-3">
+                {isLeaderVerified ? (
+                  <div className="bg-red-50/50 dark:bg-red-950/25 border border-red-100 dark:border-red-900/40 p-3 rounded-2xl text-right space-y-1.5">
+                    <div className="flex items-center gap-1.5 text-primary">
+                      <span className="w-2 h-2 rounded-full bg-red-600 animate-ping shrink-0" />
+                      <span className="text-[11px] font-black">قائد كشفي معتمد</span>
+                    </div>
+                    <p className="text-[10px] text-text-secondary dark:text-gray-400 font-semibold leading-relaxed">
+                      مرحباً بك، تصفح كامل المستندات والخطط نشط بالكامل.
+                    </p>
+                    <button
+                      onClick={() => {
+                        setIsLeaderVerified(false);
+                        localStorage.removeItem('scouts-leader-verified');
+                        setCurrentScreen('home');
+                        setIsSidebarOpen(false);
+                      }}
+                      className="w-full text-center py-1.5 bg-white dark:bg-[#150e0f] text-[10px] font-bold border border-red-100 dark:border-red-950/40 text-primary hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg transition-all"
+                    >
+                      قفل التصفح القيادي 🔒
+                    </button>
+                  </div>
+                ) : (
+                  <div className="bg-gray-50 dark:bg-[#150e0f] border border-gray-100 dark:border-red-950/20 p-3 rounded-2xl text-right space-y-1">
+                    <span className="text-[10px] text-text-secondary dark:text-gray-400 font-bold block">حالة الحساب: زائر (محدود)</span>
+                    <button
+                      onClick={() => {
+                        setCurrentScreen('education');
+                        setIsSidebarOpen(false);
+                      }}
+                      className="w-full text-center py-1.5 bg-primary text-white text-[10px] font-bold rounded-lg transition-all hover:bg-primary-light"
+                    >
+                      تفعيل دخول القادة ⚡
+                    </button>
+                  </div>
+                )}
+              </div>
+
               <div className="text-[10px] text-text-secondary dark:text-gray-400 pt-4 border-t border-gray-50">
                 <span>تطبيق الكشافة التونسية الذكي المستقر المحدث لعام 2026.</span>
               </div>
@@ -441,7 +544,7 @@ export default function App() {
       </main>
 
       {/* Screen Mobile Bottom Tab bar navigation (Shortcuts for rapid access) */}
-      <nav className="lg:hidden bg-white/95 dark:bg-[#121813]/95 backdrop-blur-md border-t border-gray-100 dark:border-emerald-950 py-2.5 px-4 fixed bottom-0 left-0 right-0 z-40 flex items-center justify-around shadow-md print:hidden">
+      <nav className="lg:hidden bg-white/95 dark:bg-[#110708]/95 backdrop-blur-md border-t border-gray-100 dark:border-red-950/30 py-2.5 px-4 fixed bottom-0 left-0 right-0 z-40 flex items-center justify-around shadow-md print:hidden">
         {[
           { id: 'home', title: 'الرئيسية', icon: Compass },
           { id: 'education', title: 'الشروط', icon: BookOpen },
